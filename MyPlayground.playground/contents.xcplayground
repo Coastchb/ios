@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='5.0' target-platform='ios'>
-    <timeline fileName='timeline.xctimeline'/>
+<playground version='6.0' target-platform='macos'>
+    <pages>
+        <page name='string'/>
+        <page name='variables'/>
+        <page name='array'/>
+        <page name='dict'/>
+        <page name='function'/>
+        <page name='enum'/>
+        <page name='struct'/>
+        <page name='class_attribute'/>
+        <page name='class_method'/>
+        <page name='subscript'/>
+        <page name='inherit'/>
+        <page name='initializer'/>
+        <page name='optional_chain'/>
+        <page name='ARC'/>
+        <page name='type_transform'/>
+        <page name='extension'/>
+        <page name='protocol'/>
+        <page name='genericity'/>
+    </pages>
 </playground>
