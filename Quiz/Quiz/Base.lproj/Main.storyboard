@@ -43,16 +43,21 @@
                                     <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dox-6Z-O1H"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-MT-IJ6">
+                                <rect key="frame" x="166.5" y="83" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KkV-YF-R5x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0jf-La-5Oz"/>
-                            <constraint firstItem="KkV-YF-R5x" firstAttribute="centerX" secondItem="4aq-xW-ZVv" secondAttribute="centerX" id="3vw-8Z-jvS"/>
-                            <constraint firstItem="nK1-21-aL3" firstAttribute="centerX" secondItem="4aq-xW-ZVv" secondAttribute="centerX" id="59W-Ny-LwA"/>
                             <constraint firstItem="KkV-YF-R5x" firstAttribute="top" secondItem="nK1-21-aL3" secondAttribute="bottom" constant="8" id="7ud-Ha-6MV"/>
+                            <constraint firstItem="4aq-xW-ZVv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MUr-y9-mch"/>
                             <constraint firstItem="Td8-ar-5vf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="NWd-RT-CAV"/>
-                            <constraint firstItem="Td8-ar-5vf" firstAttribute="centerX" secondItem="4aq-xW-ZVv" secondAttribute="centerX" id="bEn-3K-bxA"/>
-                            <constraint firstItem="4aq-xW-ZVv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dOi-lw-USu"/>
+                            <constraint firstItem="Ksh-MT-IJ6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TDx-PS-5n6"/>
+                            <constraint firstItem="Ksh-MT-IJ6" firstAttribute="top" secondItem="Td8-ar-5vf" secondAttribute="top" id="XiO-Va-0Pb"/>
                             <constraint firstItem="4aq-xW-ZVv" firstAttribute="top" secondItem="Td8-ar-5vf" secondAttribute="bottom" constant="8" id="kkO-b7-ODv"/>
                             <constraint firstItem="Td8-ar-5vf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lYb-6B-FAn"/>
                             <constraint firstItem="nK1-21-aL3" firstAttribute="top" secondItem="4aq-xW-ZVv" secondAttribute="bottom" constant="172" id="qap-4P-Afk"/>
@@ -62,7 +67,10 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="nK1-21-aL3" id="lYd-dO-Jg0"/>
-                        <outlet property="questionLabel" destination="Td8-ar-5vf" id="Nn4-fg-4gr"/>
+                        <outlet property="currentQuestionLabel" destination="Td8-ar-5vf" id="HZM-oJ-WHo"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="lYb-6B-FAn" id="0xb-zs-W0I"/>
+                        <outlet property="nextQuestionLabel" destination="Ksh-MT-IJ6" id="qbJ-X2-xM0"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="TDx-PS-5n6" id="l8e-zS-pJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

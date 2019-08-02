@@ -14,7 +14,10 @@ enum daysOfWeek {
 }
 
 var day1 = daysOfWeek.Monday
+day1 = .Friday
 print(day1)
+//var day2 = .Sunday        // error
+//print(day2)
 
 switch day1 {
 case .Monday:

@@ -103,3 +103,20 @@ func add_mul(a:Int, b:Int, c: Int) -> Int {
     return add(aa:a, bb:b) * c
 }
 print(add_mul(a:1,b:2,c:3))
+
+
+
+// handle error
+print("\nhandle error:")
+func divide(_ a: Int, _ b: Int) throws -> Int  {
+    return a/b
+}
+
+do {
+    let c = try divide(1,0)
+    print("\(c)")
+} catch let divError {
+    print("Error: \(divError)")
+}
+
+

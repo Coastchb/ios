@@ -51,3 +51,7 @@ for item in sa {
 
 print("Chemistry has \(ch_count) items")
 print("Maths has \(ma_count) items")
+
+
+let str = "32"
+print(Int(str)!)
