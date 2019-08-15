@@ -9,7 +9,7 @@
 //import Foundation
 import UIKit
 
-class DrawView: UIView{
+class DrawView: UIView, UIGestureRecognizerDelegate{
     //var currentLine: Line?
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
@@ -219,6 +219,28 @@ class DrawView: UIView{
         
         setNeedsDisplay()
     }
+    
+    @objc func moveLine(_ gestureRecognizer: UIPanGestureRecognizer) {
+        print("A pan is recognized!")
+        
+        if let index = selectedLineIndex {
+            if gestureRecognizer.state == .changed {
+                let translation = gestureRecognizer.translation(in: self)
+                finishedLines[index].begin.x += translation.x
+                finishedLines[index].begin.y += translation.y
+                finishedLines[index].end.x += translation.x
+                finishedLines[index].end.y += translation.y
+                
+                gestureRecognizer.setTranslation(CGPoint.zero, in: self)
+            } else {
+                return
+            }
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
         //let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTap(_:)))
@@ -237,6 +259,12 @@ class DrawView: UIView{
         let longPressRecognizer = UILongPressGestureRecognizer(target: self,
                                                                action: #selector(DrawView.longPress))
         addGestureRecognizer(longPressRecognizer)
+        
+        moveRecognizer = UIPanGestureRecognizer(target: self,
+                                                action: #selector(DrawView.moveLine))
+        moveRecognizer.delegate = self
+        moveRecognizer.cancelsTouchesInView = false
+        addGestureRecognizer(moveRecognizer)
         
     }
 }
