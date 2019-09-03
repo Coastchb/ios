@@ -1,0 +1,5 @@
+1. Collection view
+2. Table view
+
+3. 如何在标签选择页，去掉底部的tab
+   在那页的controller属性页面，选中 hidden button bar push

@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Photorama
+//  Toutiao
 //
-//  Created by coastcao(操海兵) on 2019/8/15.
+//  Created by coastcao(操海兵) on 2019/9/2.
 //  Copyright © 2019 coastcao(操海兵). All rights reserved.
 //
 
@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+
 
 }
 
