@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z9B-Gs-43F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z9B-Gs-43F">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,15 +90,15 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-6" y="219"/>
+            <point key="canvasLocation" x="1153" y="859"/>
         </scene>
         <!--Map-->
         <scene sceneID="Xbt-2V-Hr4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWk-ou-z2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SJX-0h-iPm" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="0y6-cL-qGR"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWk-ou-z2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1756" y="115"/>
         </scene>
@@ -107,6 +108,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="z9B-Gs-43F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gPz-rh-Uw2">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -117,11 +119,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGw-p2-dFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954" y="115"/>
+            <point key="canvasLocation" x="-66" y="-90"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ConvertIcon" width="48" height="32"/>
-        <image name="MapIcon" width="48" height="32"/>
+        <image name="ConvertIcon" width="48.5" height="32.5"/>
+        <image name="MapIcon" width="48.5" height="32.5"/>
     </resources>
 </document>
