@@ -1,2 +1,5 @@
 1. Memory Cycle Problem:
   https://www.bilibili.com/video/av16339375/?p=9    (at 26:22)
+
+2. 为啥加个判断语句就可以了？执行顺序问题。。。
+https://www.bilibili.com/video/av16339375/?p=8   (at 42:55)
