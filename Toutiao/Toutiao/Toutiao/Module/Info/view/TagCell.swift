@@ -9,9 +9,11 @@
 import UIKit
 
 class TagCollectionViewCell : UICollectionViewCell {
-    @IBOutlet weak var tagLabel: UILabel!
+    //@IBOutlet weak
+    var tagLabel: UILabel!
     
-    @IBOutlet weak var iconLabel: UILabel!
+    //@IBOutlet weak
+    var iconLabel: UILabel!
     
     var is_selected = false
     func show_hide_icon() {

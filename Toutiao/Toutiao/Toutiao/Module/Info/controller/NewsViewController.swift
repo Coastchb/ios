@@ -20,25 +20,27 @@ class NewsViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("initialize")
         //print(indexPath.row)
+        let (id, title, abstract, body) = get_target(id: news_id ?? 0)
+        
         if indexPath.row == 0 {
             //print("initialize for 0")
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsContentCell", for: indexPath)
             if let tableCell = cell as? NewsContentCell {
-                tableCell.textLabel?.text = InfoViewController.news[news_id ?? 0]
+                tableCell.textLabel?.text = body
             }
             return cell
         } else if (indexPath.row == 1) {
             //print("initialize for 1")
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsRelatedCell", for: indexPath)
             if let tableCell = cell as? NewsRelatedCell {
-                tableCell.textLabel?.text = "这里是相关链接"
+                tableCell.textLabel?.text = abstract
             }
             return cell
         } else {
             //print("initialize for 2")
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsReviewCell", for: indexPath)
             if let tableCell = cell as? NewsReviewCell {
-                tableCell.textLabel?.text = "这里都是评论"
+                tableCell.textLabel?.text = title
             }
             return cell
         }

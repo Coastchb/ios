@@ -13,9 +13,10 @@
 		8F0B3968231CA51C0013F9CA /* ToutiaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B3967231CA51C0013F9CA /* ToutiaoTests.swift */; };
 		8F0B3973231CA51C0013F9CA /* ToutiaoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B3972231CA51C0013F9CA /* ToutiaoUITests.swift */; };
 		8F0B3982231CA5D60013F9CA /* Toutiao.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F0B3981231CA5D60013F9CA /* Toutiao.storyboard */; };
-		8F0B3988231CB0160013F9CA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B3987231CB0160013F9CA /* InfoViewController.swift */; };
+		8F0B3988231CB0160013F9CA /* RecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B3987231CB0160013F9CA /* RecommendVC.swift */; };
 		8F0B398A231CB0370013F9CA /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B3989231CB0370013F9CA /* VideoViewController.swift */; };
 		8F0B398C231CB0440013F9CA /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B398B231CB0440013F9CA /* MeViewController.swift */; };
+		8F236306233769C700B7073F /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F236305233769C700B7073F /* NewsManager.swift */; };
 		8F3D89432323F5D7001337E1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3D89422323F5D7001337E1 /* NewsViewController.swift */; };
 		8F3D89452324A1A6001337E1 /* NewsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3D89442324A1A6001337E1 /* NewsListCell.swift */; };
 		8F3D89472324FF71001337E1 /* NewsContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3D89462324FF71001337E1 /* NewsContentCell.swift */; };
@@ -24,7 +25,13 @@
 		8F3D894D23288BE6001337E1 /* tags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F3D894C23288BE6001337E1 /* tags.plist */; };
 		8F3D895023288DF9001337E1 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3D894F23288DF9001337E1 /* PlistReader.swift */; };
 		8F642B152323A6E000263214 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F642B142323A6E000263214 /* TagCell.swift */; };
+		8FCB4F43233AFB95009B3BEA /* SGPageTitleViewConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCB4F3E233AFB95009B3BEA /* SGPageTitleViewConfigure.swift */; };
+		8FCB4F44233AFB95009B3BEA /* SGPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCB4F3F233AFB95009B3BEA /* SGPageTitleView.swift */; };
+		8FCB4F45233AFB95009B3BEA /* SGPageContentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCB4F40233AFB95009B3BEA /* SGPageContentCollectionView.swift */; };
+		8FCB4F46233AFB95009B3BEA /* SGPageViewPopGestureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCB4F41233AFB95009B3BEA /* SGPageViewPopGestureVC.swift */; };
+		8FCB4F47233AFB95009B3BEA /* SGPageContentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCB4F42233AFB95009B3BEA /* SGPageContentScrollView.swift */; };
 		8FD0D104231DF97E00C41DEE /* TagSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD0D103231DF97E00C41DEE /* TagSelectionViewController.swift */; };
+		8FF6E799233AF9F8007FD25D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6E798233AF9F8007FD25D /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +64,10 @@
 		8F0B3972231CA51C0013F9CA /* ToutiaoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToutiaoUITests.swift; sourceTree = "<group>"; };
 		8F0B3974231CA51C0013F9CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F0B3981231CA5D60013F9CA /* Toutiao.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Toutiao.storyboard; sourceTree = "<group>"; };
-		8F0B3987231CB0160013F9CA /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		8F0B3987231CB0160013F9CA /* RecommendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendVC.swift; sourceTree = "<group>"; };
 		8F0B3989231CB0370013F9CA /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		8F0B398B231CB0440013F9CA /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		8F236305233769C700B7073F /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		8F3D89422323F5D7001337E1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8F3D89442324A1A6001337E1 /* NewsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCell.swift; sourceTree = "<group>"; };
 		8F3D89462324FF71001337E1 /* NewsContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContentCell.swift; sourceTree = "<group>"; };
@@ -68,7 +76,18 @@
 		8F3D894C23288BE6001337E1 /* tags.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tags.plist; sourceTree = "<group>"; };
 		8F3D894F23288DF9001337E1 /* PlistReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistReader.swift; sourceTree = "<group>"; };
 		8F642B142323A6E000263214 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		8FCB4F3E233AFB95009B3BEA /* SGPageTitleViewConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGPageTitleViewConfigure.swift; sourceTree = "<group>"; };
+		8FCB4F3F233AFB95009B3BEA /* SGPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGPageTitleView.swift; sourceTree = "<group>"; };
+		8FCB4F40233AFB95009B3BEA /* SGPageContentCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGPageContentCollectionView.swift; sourceTree = "<group>"; };
+		8FCB4F41233AFB95009B3BEA /* SGPageViewPopGestureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGPageViewPopGestureVC.swift; sourceTree = "<group>"; };
+		8FCB4F42233AFB95009B3BEA /* SGPageContentScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGPageContentScrollView.swift; sourceTree = "<group>"; };
+		8FCB4F49233AFBBD009B3BEA /* SGPageTitleViewConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPageTitleViewConfigure.swift; sourceTree = "<group>"; };
+		8FCB4F4A233AFBBD009B3BEA /* SGPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPageTitleView.swift; sourceTree = "<group>"; };
+		8FCB4F4B233AFBBD009B3BEA /* SGPageContentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPageContentCollectionView.swift; sourceTree = "<group>"; };
+		8FCB4F4C233AFBBD009B3BEA /* SGPageViewPopGestureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPageViewPopGestureVC.swift; sourceTree = "<group>"; };
+		8FCB4F4D233AFBBD009B3BEA /* SGPageContentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPageContentScrollView.swift; sourceTree = "<group>"; };
 		8FD0D103231DF97E00C41DEE /* TagSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectionViewController.swift; sourceTree = "<group>"; };
+		8FF6E798233AF9F8007FD25D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				8F0B3990231CB11B0013F9CA /* Module */,
+				8FF6E7A5233AFA70007FD25D /* third_party */,
+				8FCB4F3D233AFB95009B3BEA /* SGPageView */,
 				8F0B3952231CA51B0013F9CA /* AppDelegate.swift */,
 				8F0B3959231CA51C0013F9CA /* Assets.xcassets */,
 				8F0B395B231CA51C0013F9CA /* LaunchScreen.storyboard */,
@@ -151,6 +172,7 @@
 		8F0B3980231CA57E0013F9CA /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				8F236304233769B000B7073F /* manager */,
 				8F642B132323A6C900263214 /* view */,
 				8F0B398F231CB0CE0013F9CA /* controller */,
 			);
@@ -192,9 +214,10 @@
 		8F0B398F231CB0CE0013F9CA /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				8F0B3987231CB0160013F9CA /* InfoViewController.swift */,
+				8F0B3987231CB0160013F9CA /* RecommendVC.swift */,
 				8FD0D103231DF97E00C41DEE /* TagSelectionViewController.swift */,
 				8F3D89422323F5D7001337E1 /* NewsViewController.swift */,
+				8FF6E798233AF9F8007FD25D /* InfoViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -208,6 +231,14 @@
 				8F0B3986231CAFD50013F9CA /* Me */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		8F236304233769B000B7073F /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				8F236305233769C700B7073F /* NewsManager.swift */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 		8F3D894E23288DEC001337E1 /* utils */ = {
@@ -228,6 +259,39 @@
 				8F3D894A2324FFA2001337E1 /* NewsReviewCell.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		8FCB4F3D233AFB95009B3BEA /* SGPageView */ = {
+			isa = PBXGroup;
+			children = (
+				8FCB4F3E233AFB95009B3BEA /* SGPageTitleViewConfigure.swift */,
+				8FCB4F3F233AFB95009B3BEA /* SGPageTitleView.swift */,
+				8FCB4F40233AFB95009B3BEA /* SGPageContentCollectionView.swift */,
+				8FCB4F41233AFB95009B3BEA /* SGPageViewPopGestureVC.swift */,
+				8FCB4F42233AFB95009B3BEA /* SGPageContentScrollView.swift */,
+			);
+			name = SGPageView;
+			path = ../../../../SGPageView;
+			sourceTree = "<group>";
+		};
+		8FCB4F48233AFBBD009B3BEA /* SGPageView */ = {
+			isa = PBXGroup;
+			children = (
+				8FCB4F49233AFBBD009B3BEA /* SGPageTitleViewConfigure.swift */,
+				8FCB4F4A233AFBBD009B3BEA /* SGPageTitleView.swift */,
+				8FCB4F4B233AFBBD009B3BEA /* SGPageContentCollectionView.swift */,
+				8FCB4F4C233AFBBD009B3BEA /* SGPageViewPopGestureVC.swift */,
+				8FCB4F4D233AFBBD009B3BEA /* SGPageContentScrollView.swift */,
+			);
+			path = SGPageView;
+			sourceTree = "<group>";
+		};
+		8FF6E7A5233AFA70007FD25D /* third_party */ = {
+			isa = PBXGroup;
+			children = (
+				8FCB4F48233AFBBD009B3BEA /* SGPageView */,
+			);
+			path = third_party;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,15 +426,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F0B3988231CB0160013F9CA /* InfoViewController.swift in Sources */,
+				8F0B3988231CB0160013F9CA /* RecommendVC.swift in Sources */,
+				8FCB4F47233AFB95009B3BEA /* SGPageContentScrollView.swift in Sources */,
+				8FCB4F43233AFB95009B3BEA /* SGPageTitleViewConfigure.swift in Sources */,
+				8FCB4F46233AFB95009B3BEA /* SGPageViewPopGestureVC.swift in Sources */,
 				8FD0D104231DF97E00C41DEE /* TagSelectionViewController.swift in Sources */,
 				8F642B152323A6E000263214 /* TagCell.swift in Sources */,
+				8FCB4F44233AFB95009B3BEA /* SGPageTitleView.swift in Sources */,
+				8FCB4F45233AFB95009B3BEA /* SGPageContentCollectionView.swift in Sources */,
 				8F3D895023288DF9001337E1 /* PlistReader.swift in Sources */,
+				8F236306233769C700B7073F /* NewsManager.swift in Sources */,
 				8F0B3953231CA51B0013F9CA /* AppDelegate.swift in Sources */,
 				8F3D89432323F5D7001337E1 /* NewsViewController.swift in Sources */,
 				8F0B398C231CB0440013F9CA /* MeViewController.swift in Sources */,
 				8F3D894B2324FFA2001337E1 /* NewsReviewCell.swift in Sources */,
 				8F3D89492324FF94001337E1 /* NewsRelatedCell.swift in Sources */,
+				8FF6E799233AF9F8007FD25D /* InfoViewController.swift in Sources */,
 				8F3D89472324FF71001337E1 /* NewsContentCell.swift in Sources */,
 				8F3D89452324A1A6001337E1 /* NewsListCell.swift in Sources */,
 				8F0B398A231CB0370013F9CA /* VideoViewController.swift in Sources */,
