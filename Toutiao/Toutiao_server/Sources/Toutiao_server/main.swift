@@ -11,7 +11,7 @@ MySQLConnector.password = "Mysql1991"
 MySQLConnector.database = "Toutiao"
 
 // the connection info and setup() should be infront of the launch of servers
-let obj = User()
+let obj = News()
 do {
     try obj.setup() // if table exists, use it, or create it
 } catch {
@@ -19,6 +19,7 @@ do {
 }
 
 var routes = Routes()
+/*
 routes.add(method: .get, uri: "/") {
     request, response in
     response.setHeader(.contentType, value: "text/html")
@@ -52,22 +53,39 @@ routes.add(method: .get, uri: "/f0") {
     response.setHeader(.contentType, value: "text/html")
     response.appendBody(string: "<html><title>\(header)</title><body>created successfully!<br>  id:\(find_id);name:\(find_ret)</body></html>").completed()
 }
-
+*/
 routes.add(method: .post, uri: "/show_all") {
     request, response in
     print("your uri:/show_all")
     
-    let all_users = show_all()
-    let header = "show all users"
+    let all_news = show_all()
+    let header = "show all news"
     response.setHeader(.contentType, value: "application/json")
     var json = "{"
-    all_users.forEach { cur_user in
-        json += "\"\(cur_user.user_name)\":\(cur_user.user_id),"
+    all_news.forEach { cur_news in
+        //json += "\"\(cur_news.news_id)\":[{\"news_title\":\"\(cur_news.news_title)\"},{\"news_abstract\":\"\(cur_news.news_abstract)\"},{\"news_body\":\"\(cur_news.news_body)\"}],"
+        json += "\"\(cur_news.news_id)\":[\"\(cur_news.news_title)\",\"\(cur_news.news_abstract)\",\"\(cur_news.news_body)\"],"
     }
     json += "}"
     response.appendBody(string: json).completed()
 }
 
+routes.add(method: .post, uri: "/show_target") {
+    request, response in
+    print("your uri:/show_target")
+    
+    let (target_id,_) = request.params()[0]
+    
+    let target_news = show_target(id: Int(target_id) ?? 0)
+    let header = "show the target news"
+    response.setHeader(.contentType, value: "application/json")
+    var json = "{"
+    json += "\"\(target_news.news_id)\":[\"\(target_news.news_title)\",\"\(target_news.news_abstract)\",\"\(target_news.news_body)\"]"
+    json += "}"
+    response.appendBody(string: json).completed()
+}
+
+/*
 routes.add(method: .get, uri: "/d0") {
     request, response in
     print("your uri:/d0")
@@ -102,10 +120,10 @@ routes.add(method: .post, uri: "/count0") {
     response.setHeader(.contentType, value: "application/json")
     response.appendBody(string: json).completed()
 }
-
+*/
 do {
     try HTTPServer.launch(
-        .server(name:"localhost", port:8080, routes:routes))
+        .server(name:"localhost", port:8888, routes:routes))
 } catch {
     fatalError("\(error)")
 }
