@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zPa-iP-OC0" customClass="NewsListCell" customModule="Toutiao" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zPa-iP-OC0" id="e5Q-ea-UWf" customClass="NewsListCell" customModule="Toutiao" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COI-sq-2AF">
+                        <rect key="frame" x="20" y="30" width="350" height="9.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGW-NO-Kmh">
+                        <rect key="frame" x="20" y="70" width="240" height="29.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="COI-sq-2AF" firstAttribute="top" secondItem="e5Q-ea-UWf" secondAttribute="top" constant="30" id="IxW-2X-5zC"/>
+                    <constraint firstAttribute="bottom" secondItem="nGW-NO-Kmh" secondAttribute="bottom" constant="10" id="KIi-IT-Ilh"/>
+                    <constraint firstAttribute="trailing" secondItem="COI-sq-2AF" secondAttribute="trailing" constant="10" id="L01-SD-F8U"/>
+                    <constraint firstAttribute="trailing" secondItem="nGW-NO-Kmh" secondAttribute="trailing" constant="120" id="bfs-pX-Yhj"/>
+                    <constraint firstItem="COI-sq-2AF" firstAttribute="leading" secondItem="e5Q-ea-UWf" secondAttribute="leading" constant="20" id="bpL-J5-EsH"/>
+                    <constraint firstItem="nGW-NO-Kmh" firstAttribute="top" secondItem="e5Q-ea-UWf" secondAttribute="top" constant="70" id="gFx-b7-dRD"/>
+                    <constraint firstItem="nGW-NO-Kmh" firstAttribute="leading" secondItem="e5Q-ea-UWf" secondAttribute="leading" constant="20" id="j1v-Tw-rwX"/>
+                    <constraint firstAttribute="bottom" secondItem="COI-sq-2AF" secondAttribute="bottom" constant="70" id="yKa-Q7-3xN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="newsAbstractInCell" destination="nGW-NO-Kmh" id="ZLZ-He-ORA"/>
+                <outlet property="newsTitleInCell" destination="COI-sq-2AF" id="xDx-7r-84J"/>
+            </connections>
+            <point key="canvasLocation" x="-4659.420289855073" y="465.73660714285711"/>
+        </tableViewCell>
+    </objects>
+</document>

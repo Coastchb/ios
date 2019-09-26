@@ -26,13 +26,14 @@ class RecommendVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: "NewsListCell", for: indexPath)
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "newsListCell", for: indexPath)
         if let cell = tableCell as? NewsListCell {
             print("ok")
             let (id, title, abstract, body) = all_news[indexPath.row]
 
             cell.newsTitleInCell?.text = title
             cell.newsAbstractInCell?.text = abstract
+            //cell.newsPictureInCell?.image = UIImage(named: <#T##String#>, in: <#T##Bundle?#>, compatibleWith: <#T##UITraitCollection?#>)
             return cell
         } else {
             print("not ok")
@@ -48,10 +49,14 @@ class RecommendVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        newsTableView.register(NewsListCell.self, forCellReuseIdentifier: "NewsListCell")
+        
+        newsTableView.register(UINib(nibName: "NewsListCell", bundle: nil), forCellReuseIdentifier: "newsListCell")
+        
+        // of course, we can write custom cell in code
+        // newsTableView.register(NewsListCell_in_code.self, forCellReuseIdentifier: "newsListCell")
+        
         view.addSubview(newsTableView)
-        //self.view.backgroundColor = UIColor.red;
-        // Do any additional setup after loading the view.
+
     }
     
     override func viewWillLayoutSubviews() {
