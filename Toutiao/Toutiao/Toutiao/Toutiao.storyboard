@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="2148" y="455"/>
         </scene>
-        <!--View Controller-->
+        <!--RecommendVC-->
         <scene sceneID="Y9c-Q0-ljx">
             <objects>
-                <viewController id="4TU-Gp-5R7" sceneMemberID="viewController">
+                <viewController id="4TU-Gp-5R7" customClass="RecommendVC" customModule="Toutiao" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gWa-Ta-gsz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,15 +41,26 @@
                                     <segue destination="C3o-7t-y5E" kind="show" id="4Rf-qW-f4H"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rpX-PB-Ik2">
+                                <rect key="frame" x="10" y="110" width="414" height="742"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rpX-PB-Ik2" firstAttribute="top" secondItem="ZD2-hV-AlH" secondAttribute="top" constant="66" id="NHT-FP-p91"/>
+                            <constraint firstItem="ZD2-hV-AlH" firstAttribute="bottom" secondItem="rpX-PB-Ik2" secondAttribute="bottom" constant="10" id="Qzn-gG-2sg"/>
                             <constraint firstItem="ZD2-hV-AlH" firstAttribute="trailing" secondItem="Bb7-bk-4GL" secondAttribute="trailing" constant="10" id="R9E-Lo-vp7"/>
+                            <constraint firstItem="rpX-PB-Ik2" firstAttribute="trailing" secondItem="ZD2-hV-AlH" secondAttribute="trailing" constant="10" id="Smq-fa-zvJ"/>
+                            <constraint firstItem="rpX-PB-Ik2" firstAttribute="leading" secondItem="ZD2-hV-AlH" secondAttribute="leading" constant="10" id="a2k-f0-HAK"/>
                             <constraint firstItem="Bb7-bk-4GL" firstAttribute="top" secondItem="ZD2-hV-AlH" secondAttribute="top" constant="5" id="vGv-tR-BB8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZD2-hV-AlH"/>
                     </view>
                     <navigationItem key="navigationItem" id="iwW-pm-fPk" userLabel="Info"/>
+                    <connections>
+                        <outlet property="newsTableView" destination="rpX-PB-Ik2" id="bB1-No-xYO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKM-mK-srI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,10 +189,41 @@
                     <view key="view" contentMode="scaleToFill" id="d79-B7-add">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvE-eB-ZYl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="81"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="70周年国庆" translatesAutoresizingMaskIntoConstraints="NO" id="2le-Tu-47S">
+                                        <rect key="frame" x="10" y="20" width="394" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>aaaaa</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2le-Tu-47S" secondAttribute="bottom" constant="5" id="18j-TU-bdS"/>
+                                    <constraint firstItem="2le-Tu-47S" firstAttribute="top" secondItem="FvE-eB-ZYl" secondAttribute="top" constant="20" id="5sh-V2-9BN"/>
+                                    <constraint firstAttribute="trailing" secondItem="2le-Tu-47S" secondAttribute="trailing" constant="10" id="6nV-hm-wsK"/>
+                                    <constraint firstItem="2le-Tu-47S" firstAttribute="leading" secondItem="FvE-eB-ZYl" secondAttribute="leading" constant="10" id="lf9-cM-ylC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FvE-eB-ZYl" firstAttribute="leading" secondItem="Lgo-HM-eLd" secondAttribute="leading" id="Oif-Yk-UWX"/>
+                            <constraint firstItem="Lgo-HM-eLd" firstAttribute="trailing" secondItem="FvE-eB-ZYl" secondAttribute="trailing" id="csA-fu-upR"/>
+                            <constraint firstItem="FvE-eB-ZYl" firstAttribute="top" secondItem="Lgo-HM-eLd" secondAttribute="top" id="nKT-Mm-DJG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lgo-HM-eLd"/>
                     </view>
                     <navigationItem key="navigationItem" id="edh-zt-7ZS"/>
+                    <connections>
+                        <outlet property="banner_view" destination="FvE-eB-ZYl" id="GBf-yj-Bxw"/>
+                        <outlet property="info_search_bar" destination="2le-Tu-47S" id="guZ-YC-TJ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoW-d7-BLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,7 +233,9 @@
         <scene sceneID="THt-c2-02S">
             <objects>
                 <navigationController title="Video" automaticallyAdjustsScrollViewInsets="NO" id="Jz6-eG-ekJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="视频" image="video-outline" id="5l6-hI-vCN"/>
+                    <tabBarItem key="tabBarItem" title="视频" image="video_small" id="5l6-hI-vCN">
+                        <color key="badgeColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6hW-Ck-uhG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -223,7 +267,7 @@
         <scene sceneID="fbS-BP-nsb">
             <objects>
                 <navigationController title="Me" automaticallyAdjustsScrollViewInsets="NO" id="FK6-p1-rc3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="person-outline" id="gVH-KQ-aZv"/>
+                    <tabBarItem key="tabBarItem" title="我" image="me_small" id="gVH-KQ-aZv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e2k-sJ-97G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -321,11 +365,11 @@
             </objects>
             <point key="canvasLocation" x="3968.115942028986" y="-298.66071428571428"/>
         </scene>
-        <!--Item-->
+        <!--info-->
         <scene sceneID="HpB-1f-1gc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yNi-oS-fMv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZHr-wa-XfU"/>
+                <navigationController title="info" automaticallyAdjustsScrollViewInsets="NO" id="yNi-oS-fMv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="资讯" image="info_small" id="ZHr-wa-XfU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P9c-lJ-7w2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -348,7 +392,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FwR-S5-cRy">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                     </tabBar>
                     <connections>
                         <segue destination="yNi-oS-fMv" kind="relationship" relationship="viewControllers" id="QDi-I7-yDy"/>
@@ -362,7 +406,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person-outline" width="128" height="128"/>
-        <image name="video-outline" width="128" height="128"/>
+        <image name="info_small" width="29" height="29"/>
+        <image name="me_small" width="29" height="29"/>
+        <image name="video_small" width="29" height="29"/>
     </resources>
 </document>

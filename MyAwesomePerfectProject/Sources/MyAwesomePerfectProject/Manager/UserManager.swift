@@ -61,5 +61,5 @@ func show_all () -> [User] {
     print("to show all users")
     let obj = User()
     try? obj.findAll()
-    return obj.rows()s
+    return obj.rows()
 }
