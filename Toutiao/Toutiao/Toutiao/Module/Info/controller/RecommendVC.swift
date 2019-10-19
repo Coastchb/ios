@@ -1,45 +1,100 @@
 //
-//  InfoViewController.swift
+//  RecommendVC.swift
 //  Toutiao
 //
-//  Created by coastcao(操海兵) on 2019/9/2.
+//  Created by coastcao(操海兵) on 2019/10/8.
 //  Copyright © 2019 coastcao(操海兵). All rights reserved.
 //
 
-// mark 1: make sure that table height is not bigger than that of visible eara
-// mark 2: two ways to custom table cell
-
 import UIKit
 
-//@IBDesignable
-class RecommendVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    //@IBOutlet
-    private lazy var newsTableView: UITableView = {
-        // mark 1
-        let tableView = UITableView(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: view.frame.size.height - 197.0 ), style: .plain)
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        return tableView
-    }()
+class RecommendVC: UITableViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("\(all_news.count)")
+    var viewed_news_id = [Int]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        //print(all_news)
+        tableView.register(UINib(nibName: "NewsListCell", bundle: nil), forCellReuseIdentifier: "newsListCell")
+        
+        // 顶部刷新控件
+        tableView.mj_header = RefreshAutoGifHeader(refreshingBlock: { [weak self] in
+            // 获取更新资讯
+            /*DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+                self!.tableView.reloadData()
+                self!.tableView.mj_header?.endRefreshing()
+            })*/
+            
+            var more = get_all()
+            more.forEach { one in
+                 self!.all_news.append(one)
+             }
+            if self!.tableView.mj_header.isRefreshing { self!.tableView.mj_header.endRefreshing() }
+            self!.tableView.mj_header.pullingPercent = 0.0
+            self!.tableView.reloadData()
+            
+        })
+        tableView.mj_header?.isAutomaticallyChangeAlpha = true
+        
+        // 底部刷新控件
+        tableView.mj_footer = RefreshAutoGifFooter(refreshingBlock: { [weak self] in
+               // 获取资讯列表数据，加载更多
+            
+            /*
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+                    print("footer refreshing...")
+                     var more = get_all()
+                     more.forEach { one in
+                         self!.all_news.append(one)
+                     }
+                    if self!.tableView.mj_footer.isRefreshing { self!.tableView.mj_footer.endRefreshing() }
+                    self!.tableView.mj_footer.pullingPercent = 0.0
+                     self!.tableView.reloadData()
+                //self!.tableView.reloadData()
+                //self!.tableView.mj_footer?.endRefreshingWithNoMoreData()
+            })*/
+ 
+            var more = get_all()
+            more.forEach { one in
+                 self!.all_news.append(one)
+             }
+            if self!.tableView.mj_footer.isRefreshing { self!.tableView.mj_footer.endRefreshing() }
+            self!.tableView.mj_footer.pullingPercent = 0.0
+             self!.tableView.reloadData()
+            //self!.tableView.mj_footer?.endRefreshingWithNoMoreData()
+           })
+           tableView.mj_footer.isAutomaticallyChangeAlpha = true
+    }
+
+    // MARK: - Table view data source
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //print("all_news.count:\(all_news.count)")
         return all_news.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "newsListCell", for: indexPath)
 
         if let cell = tableCell as? NewsListCell {
-            print("ok")
+            //print("ok 0")
+            //print("feed row at:\(indexPath.row)")
             let (id, title, abstract, body) = all_news[indexPath.row]
 
+            print("news_id:\(id)")
+            //print("\(viewed_news_id.index(after: id))")
+            //print("\(viewed_news_id)")
+            if (viewed_news_id.lastIndex(of: id) != nil) {
+                cell.newsTitleLabel.textColor = .gray
+            }
             cell.newsTitleLabel.text = title
             cell.newsAbstractLabel.text = abstract
+            cell.newsPicture?.image = UIImage(imageLiteralResourceName: "news_pic_\(id)")
             //cell.newsAbstractInCell?.text = abstract
+            //print("ok 1")
             
+            //cell.selectionStyle = .none
             return cell
         } else {
             print("not ok")
@@ -48,47 +103,26 @@ class RecommendVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         return tableCell
     }
     
-    override func viewDidLayoutSubviews() {
-        newsTableView.rowHeight = 120
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = NewsViewController()
+        var news_id : Int
+        (news_id,_,_,_) = all_news[indexPath.row]
+        vc.news_id = news_id
+        navigationController?.pushViewController(vc, animated: true)
+        viewed_news_id.append(all_news[indexPath.row].0)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad();
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
         
-        // mark 2
-        newsTableView.register(UINib(nibName: "NewsListCell", bundle: nil), forCellReuseIdentifier: "newsListCell")
-        
-        // of course, we can write custom cell in code
-        // newsTableView.register(NewsListCell_in_code.self, forCellReuseIdentifier: "newsListCell")
-        
-        view.addSubview(newsTableView)
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        tableView.showsVerticalScrollIndicator = true
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        tableView.showsVerticalScrollIndicator = false
+    }
 
-    }
-    /*
-    override func viewWillLayoutSubviews() {
-        newsTableView.rowHeight = 120
-    }*/
-    
     var all_news = get_all()
-    
-    // MARK: - Navigation
-
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if let identifier = segue.identifier, identifier == "showNews" {
-            if let cell = sender as? UITableViewCell, let indexPath = newsTableView.indexPath(for: cell) {
-                if let newsViewController = segue.destination as? NewsViewController {
-                    //newsViewController.viewDidLoad()
-                    newsViewController.news_id = all_news[indexPath.row].0
-                }
-            }
-        }
-    }*/
-    
-
-    
-    
 }

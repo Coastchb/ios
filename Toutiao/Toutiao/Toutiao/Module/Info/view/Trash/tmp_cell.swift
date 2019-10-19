@@ -15,6 +15,34 @@ class tmp_cell: UITableViewCell {
         // Initialization code
     }
 
+
+    @IBOutlet weak var jump_button: UIButton!
+    
+    @IBAction func jump(_ sender: Any) {
+        var nextResponder: UIResponder? = self
+        var target : InfoViewController?
+        repeat {
+                nextResponder = nextResponder?.next
+                //print("\(nextResponder)")
+                if let viewController = nextResponder as? InfoViewController {
+                    target = viewController
+                    break
+                }
+                
+            } while nextResponder != nil
+
+        /*
+        var info_VC = InfoViewController()
+        info_VC.show_tab_index = 3
+        //target?.pushViewController(info_VC, animated: true)
+        target?.setViewControllers([info_VC], animated: true)
+        print("all VCs: \(target?.viewControllers)") */
+        //target?.show_tab_index = 3
+        
+        
+
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

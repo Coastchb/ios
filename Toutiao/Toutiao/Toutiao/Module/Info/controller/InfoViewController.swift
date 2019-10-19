@@ -10,21 +10,48 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    @IBOutlet weak var info_search_bar: UISearchBar!
-    @IBOutlet weak var banner_view: UIView!
+    let titles = ["哥哥", "老公", "噩梦"]
     
-    private var pageTitleView: SGPageTitleView? = nil
-    private var pageContentCollectionView: SGPageContentCollectionView? = nil
+    var show_tab_index = 0 {
+        didSet {
+            self.pagingViewController.select(index: show_tab_index)
+        }
+    }
+
+    func setStatusBarBackgroundColor(color: UIColor) {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "national_day4.jpg")) //color
+    }
+    
+    let pagingViewController = PagingViewController<PagingIndexItem>()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        banner_view?.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "national_day4.jpg"))
-        info_search_bar?.backgroundColor = UIColor.white
-        view.backgroundColor = UIColor.white
-        view.contentMode = .scaleToFill
+
+        //setStatusBarBackgroundColor(color: .red)
+
+        navigationItem.titleView = Bundle.main.loadNibNamed("pageHeader", owner: nil, options: nil)?.last as? UIView
+        //navigationItem.titleView?.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0)
+        //self.navigationItem.titleView?.backgroundColor = .black
+
+        //view.backgroundColor = UIColor.white
+        //view.contentMode = .scaleToFill
         
-        // Do any additional setup after loading the view.
-        setupSGPagingView()
+        pagingViewController.dataSource = self
+        pagingViewController.delegate = self
+        
+        // Add the paging view controller as a child view controller and
+        // contrain it to all edges.
+        addChild(pagingViewController)
+        pagingViewController.menuHorizontalAlignment = .center
+        view.addSubview(pagingViewController.view)
+        view.constrainToEdges(pagingViewController.view)
+        pagingViewController.didMove(toParent: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     deinit {
@@ -32,54 +59,55 @@ class InfoViewController: UIViewController {
     }
 }
 
-extension InfoViewController {
-    private func setupSGPagingView() {
-        let statusHeight = UIApplication.shared.statusBarFrame.height
-        var pageTitleViewY: CGFloat = 0.0
-        if statusHeight == 20 {
-            pageTitleViewY = 64
-        } else {
-            pageTitleViewY = 88
-        }
-    
-        pageTitleViewY += banner_view!.frame.height
-        
-        let titles = ["精选", "电影", "电视剧", "综艺", "NBA", "娱乐", "动漫", "演唱会", "VIP会员"]
-        let configure = SGPageTitleViewConfigure()
-        configure.indicatorStyle = .Dynamic
-        configure.titleAdditionalWidth = 35
-        
-        self.pageTitleView = SGPageTitleView(frame: CGRect(x: 0, y: pageTitleViewY, width: view.frame.size.width, height: 44), delegate: self, titleNames: titles, configure: configure)
-        view.addSubview(pageTitleView!)
-        
-        let oneVC = RecommendVC()
-        let twoVC = child_0ne()
-        /*
-         let threeVC = ChildThreeVC()
-         let fourVC = ChildFourVC()
-         let fiveVC = ChildFiveVC()
-         let sixVC = ChildSixVC()
-         let sevenVC = ChildSevenVC()
-         let eightVC = ChildEightVC()
-         let nineVC = ChildNineVC()
-         */
-        let childVCs = [oneVC, twoVC] //, twoVC, threeVC, fourVC, fiveVC, sixVC, sevenVC, eightVC, nineVC]
-        
-        let contentViewHeight = view.frame.size.height - self.pageTitleView!.frame.maxY
-        let contentRect = CGRect(x: 0, y: (pageTitleView?.frame.maxY)!, width: view.frame.size.width, height: contentViewHeight)
-        self.pageContentCollectionView = SGPageContentCollectionView(frame: contentRect, parentVC: self, childVCs: childVCs)
-        pageContentCollectionView?.delegateCollectionView = self
-        view.addSubview(pageContentCollectionView!)
-        
+
+extension InfoViewController: PagingViewControllerDataSource {
+  
+  func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, pagingItemForIndex index: Int) -> T {
+    return PagingIndexItem(index: index, title: self.titles[index]) as! T
+  }
+  
+  func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, viewControllerForIndex index: Int) -> UIViewController {
+    if(index == 0){
+        return RecommendVC()
+    } else if (index == 1) {
+        return RecommendVC_2()
+    } else {
+        return RecommendVC_3()
     }
+
+  }
+  
+  func numberOfViewControllers<T>(in: PagingViewController<T>) -> Int {
+    return self.titles.count
+    
+    }
+  
 }
 
-extension InfoViewController: SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate {
-    func pageTitleView(pageTitleView: SGPageTitleView, index: Int) {
-        pageContentCollectionView?.setPageContentCollectionView(index: index)
-    }
+extension InfoViewController: PagingViewControllerDelegate {
+  
+  func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, widthForPagingItem pagingItem: T, isSelected: Bool) -> CGFloat? {
+    guard let item = pagingItem as? PagingIndexItem else { return 0 }
+
+    let insets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    let size = CGSize(width: 375, height: pagingViewController.menuItemSize.height)
+    let attributes = [NSAttributedString.Key.font: pagingViewController.font]
     
-    func pageContentCollectionView(pageContentCollectionView: SGPageContentCollectionView, progress: CGFloat, originalIndex: Int, targetIndex: Int) {
-        pageTitleView?.setPageTitleView(progress: progress, originalIndex: originalIndex, targetIndex: targetIndex)
+    let rect = item.title.boundingRect(with: size,
+      options: .usesLineFragmentOrigin,
+      attributes: attributes,
+      context: nil)
+
+    let width = ceil(rect.width) + insets.left + insets.right
+    
+    if isSelected {
+      return width // * 1.5
+    } else {
+      return width
+    }
+  }
+    
+    func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, didScrollToItem pagingItem: T, startingViewController: UIViewController?, destinationViewController: UIViewController, transitionSuccessful: Bool) {
+        pagingViewController.select(pagingItem: pagingItem, animated: true)
     }
 }

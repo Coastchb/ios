@@ -11,11 +11,19 @@ MySQLConnector.password = "Mysql1991"
 MySQLConnector.database = "Toutiao"
 
 // the connection info and setup() should be infront of the launch of servers
-let obj = News()
+let obj_news = News()
 do {
-    try obj.setup() // if table exists, use it, or create it
+    try obj_news.setup() // if table exists, use it, or create it
 } catch {
-    print("Error while setup table")
+    print("Error while setup news table")
+}
+
+
+let user_obj = Users()
+do {
+    try user_obj.setup()
+} catch {
+    print("Error while steup user table")
 }
 
 var routes = Routes()
@@ -67,6 +75,7 @@ routes.add(method: .post, uri: "/show_all") {
         json += "\"\(cur_news.news_id)\":[\"\(cur_news.news_title)\",\"\(cur_news.news_abstract)\",\"\(cur_news.news_body)\"],"
     }
     json += "}"
+    print("\(json)")
     response.appendBody(string: json).completed()
 }
 
@@ -75,7 +84,7 @@ routes.add(method: .post, uri: "/show_target") {
     print("your uri:/show_target")
     
     let (target_id,_) = request.params()[0]
-    
+
     let target_news = show_target(id: Int(target_id) ?? 0)
     let header = "show the target news"
     response.setHeader(.contentType, value: "application/json")
@@ -85,6 +94,83 @@ routes.add(method: .post, uri: "/show_target") {
     response.appendBody(string: json).completed()
 }
 
+routes.add(method: .post, uri: "/login") {
+    request, response in
+    print("your uri:/login")
+    
+    let (user_name,_) = request.params()[0]
+    let (passwd, _) = request.params()[1]
+    
+    let verify_ret = login(user_name: user_name, passwd: passwd) ? "passed" : "failed"
+
+    print("\(verify_ret)")
+    let header = "verifying user"
+    var json = "{\"ret\": [\"\(verify_ret)\"]}"
+    response.setHeader(.contentType, value: "application/json")
+    response.appendBody(string: json).completed()
+}
+
+routes.add(method: .post, uri: "/show_all_2") {
+    request, response in
+    print("your uri:/show_all_2")
+    
+    let all_news = show_all_2()
+    let header = "show all news2"
+    response.setHeader(.contentType, value: "application/json")
+    var json = "{"
+    all_news.forEach { cur_news in
+        //json += "\"\(cur_news.news_id)\":[{\"news_title\":\"\(cur_news.news_title)\"},{\"news_abstract\":\"\(cur_news.news_abstract)\"},{\"news_body\":\"\(cur_news.news_body)\"}],"
+        json += "\"\(cur_news.id)\":[\"\(cur_news.title)\",\"\(cur_news.abstract)\",\"\(cur_news.body)\"],"
+    }
+    json += "}"
+    response.appendBody(string: json).completed()
+}
+
+routes.add(method: .post, uri: "/show_target_2") {
+    request, response in
+    print("your uri:/show_target_2")
+    
+    let (target_id,_) = request.params()[0]
+
+    let target_news = show_target_2(id: Int(target_id) ?? 0)
+    let header = "show the target news2"
+    response.setHeader(.contentType, value: "application/json")
+    var json = "{"
+    json += "\"\(target_news.id)\":[\"\(target_news.title)\",\"\(target_news.abstract)\",\"\(target_news.body)\"]"
+    json += "}"
+    response.appendBody(string: json).completed()
+}
+
+routes.add(method: .post, uri: "/show_all_3") {
+    request, response in
+    print("your uri:/show_all_3")
+    
+    let all_news = show_all_3()
+    let header = "show all news3"
+    response.setHeader(.contentType, value: "application/json")
+    var json = "{"
+    all_news.forEach { cur_news in
+        //json += "\"\(cur_news.news_id)\":[{\"news_title\":\"\(cur_news.news_title)\"},{\"news_abstract\":\"\(cur_news.news_abstract)\"},{\"news_body\":\"\(cur_news.news_body)\"}],"
+        json += "\"\(cur_news.id)\":[\"\(cur_news.title)\",\"\(cur_news.abstract)\",\"\(cur_news.body)\"],"
+    }
+    json += "}"
+    response.appendBody(string: json).completed()
+}
+
+routes.add(method: .post, uri: "/show_target_3") {
+    request, response in
+    print("your uri:/show_target_3")
+    
+    let (target_id,_) = request.params()[0]
+
+    let target_news = show_target_3(id: Int(target_id) ?? 0)
+    let header = "show the target news3"
+    response.setHeader(.contentType, value: "application/json")
+    var json = "{"
+    json += "\"\(target_news.id)\":[\"\(target_news.title)\",\"\(target_news.abstract)\",\"\(target_news.body)\"]"
+    json += "}"
+    response.appendBody(string: json).completed()
+}
 /*
 routes.add(method: .get, uri: "/d0") {
     request, response in

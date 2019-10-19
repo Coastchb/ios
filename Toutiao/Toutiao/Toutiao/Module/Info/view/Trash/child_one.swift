@@ -9,7 +9,7 @@
 
 import UIKit
 
-class child_0ne: UITableViewController{
+class child_one: UITableViewController{
     
     var ids = [1,2,3,4,5,6,7,8,9,10,11,12,13,15,1345,34,534,63,46,3456,45,6456,45,343,34,534,32]
     
@@ -18,14 +18,21 @@ class child_0ne: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+            tableCell.textLabel!.text = "\(ids[indexPath.row])"
         
-        tableCell.textLabel!.text = "\(ids[indexPath.row])"
-        return tableCell
+        if let cell = tableCell as? tmp_cell {
+           // print("\(cell.jump_button.titleLabel?.text)")
+
+
+        }
+            return tableCell
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 30
     }
     
     
@@ -37,6 +44,11 @@ class child_0ne: UITableViewController{
         // Do any additional setup after loading the view.
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = NewsViewController()
+        vc.news_id = 1
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     /*
      // MARK: - Navigation

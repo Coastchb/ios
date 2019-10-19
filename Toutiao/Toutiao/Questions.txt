@@ -8,3 +8,4 @@
 
 5. 如何在view内生成标签列表，点击可显示对应view。比如滴滴首页的“快车”、“出租车”等等
     是不是页面内横向ColletionView?
+   使用SGPagingView

@@ -13,27 +13,27 @@ class NewsViewController: UITableViewController{
     //@IBOutlet weak var newsTableView: UITableView!
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;   // content, related and review
+        return 1;   // content, related and review
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("initialize")
         //print(indexPath.row)
-        let (id, title, abstract, body) = get_target(id: news_id ?? 0)
         
         if indexPath.row == 0 {
             //print("initialize for 0")
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsContentCell", for: indexPath)
             if let tableCell = cell as? NewsContentCell {
-                tableCell.textLabel?.text = body
+                tableCell.body.text = news_body
+                tableCell.title.text = news_title
             }
             return cell
         } else if (indexPath.row == 1) {
             //print("initialize for 1")
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsRelatedCell", for: indexPath)
             if let tableCell = cell as? NewsRelatedCell {
-                tableCell.textLabel?.text = abstract
+                tableCell.textLabel?.text = news_abstract
             }
             return cell
         } else {
@@ -47,22 +47,34 @@ class NewsViewController: UITableViewController{
         
     }
     
+
     
     var news_id : Int? {
         didSet {
-           // print(news_id ?? 0)
+            print(news_id)
         }
     }
+    
+    var news_title : String?
+    var news_body : String?
+    var news_abstract : String?
+    
     
     override func viewDidLoad() {
         //print("In viewDidLoad,newsView")
         super.viewDidLoad()
-        loadViewIfNeeded()           // without this, "unexpectedly found nil while unwrapping an Optional value" will occur at "newsView.text = InfoViewController.news[news_id ?? 0]"
+        (news_id,news_title,news_abstract,news_body) = get_target(id: news_id!)
         
-       // tableView(tableView, cellForRowAt: IndexPath(index: 0))
-       // tableView(tableView, cellForRowAt: IndexPath(index: 1))
-       // tableView(tableView, cellForRowAt: IndexPath(index: 2))
-        // Do any additional setup after loading the view.
+        //print("data loaded")
+        
+       tableView.register(UINib(nibName: "NewsContentCell", bundle: nil), forCellReuseIdentifier: "newsContentCell")
+        tableView.register(UINib(nibName: "NewsRelatedCell", bundle: nil), forCellReuseIdentifier: "newsRelatedCell")
+        tableView.register(UINib(nibName: "NewsReviewCell", bundle: nil), forCellReuseIdentifier: "newsReviewCell")
+        
+        
+        /*
+         loadViewIfNeeded()           // in storyboard mode, push from parent view to children view. without this, "unexpectedly found nil while unwrapping an Optional value" will occur at "newsView.text = InfoViewController.news[news_id ?? 0]"
+         */
     }
     
     

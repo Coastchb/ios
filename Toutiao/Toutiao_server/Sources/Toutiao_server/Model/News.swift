@@ -36,3 +36,62 @@ class News : MySQLStORM {
         return news
     }
 }
+
+class News_2 : MySQLStORM {
+    var id : Int = 0
+    var title : String = ""
+    var abstract : String = ""
+    var body : String = ""
+    
+    override open func table() -> String {
+        return "news_2"
+    }
+    
+    override func to(_ this: StORMRow) {
+        self.id = Int(this.data["id"] as! Int32)
+        self.title = this.data["title"] as! String
+        self.abstract = this.data["abstract"] as! String
+        self.body = this.data["body"] as! String
+    }
+    
+    func rows() -> [News_2] {
+        var news = [News_2]()
+        for i in 0..<self.results.rows.count {
+            let row = News_2()
+            row.to(self.results.rows[i])
+            news.append(row)
+            
+        }
+        return news
+    }
+}
+
+class News_3 : MySQLStORM {
+    var id : Int = 0
+    var title : String = ""
+    var abstract : String = ""
+    var body : String = ""
+    
+    override open func table() -> String {
+        return "news_3"
+    }
+    
+    override func to(_ this: StORMRow) {
+        self.id = Int(this.data["id"] as! Int32)
+        self.title = this.data["title"] as! String
+        self.abstract = this.data["abstract"] as! String
+        self.body = this.data["body"] as! String
+    }
+    
+    func rows() -> [News_3] {
+        var news = [News_3]()
+        for i in 0..<self.results.rows.count {
+            let row = News_3()
+            row.to(self.results.rows[i])
+            news.append(row)
+            
+        }
+        return news
+    }
+}
+
