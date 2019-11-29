@@ -73,7 +73,7 @@ class MeViewController_old: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //self.present(LoginViewController(), animated: true)
         if (!logined) {
-            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+            //self.navigationController?.pushViewController(LoginViewController(), animated: true)
         }
     }
     /*

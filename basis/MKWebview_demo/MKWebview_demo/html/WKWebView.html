@@ -1,0 +1,77 @@
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>JS交互</title>
+        
+        <style>
+            
+            body {
+                font-size:30px;
+                text-align:center;
+            }
+        
+        * {
+            margin: 30px;
+            padding: 0;
+        }
+        
+        h1{
+            color: red;
+        }
+        
+        button{
+            width: 300px;
+            height: 50px;
+            font-size: 30px;
+        }
+        
+            </style>
+        
+    </head>
+    <body>
+        <h1>WKWebview与iOS交互</h1>
+        <h2></h2>
+        <button onclick="testA()">点击alert弹框</button>
+        <button onclick="testB('我是弹窗内容')">点击alert有参弹窗</button>
+        <button onclick="testConfrim()">点击confrim弹窗</button>
+        <button onclick="buttonAction()">向iOS端传递数据</button>
+        <script type="text/javascript">
+            
+            //无参数函数
+            function testA() {
+                alert("我是JS中的弹窗消息");
+            }
+        
+            //有参数函数
+            function testB(value) {
+                alert(value);
+            }
+        
+            function testC(value) {
+                return value + "value";
+            }
+        
+            //接受iOS端传过来的参数，
+            function testObject(name,age) {
+                var object = {name:name,age:age};
+                return object;
+            }
+        
+            function testConfrim() {
+                comfirm("确定修改数据吗？")
+            }
+        
+            function buttonAction(){
+                try {
+                    <!-- js 向iOS 传递数据-->
+                    window.webkit.messageHandlers.getMessage.postMessage("我是js传递过来的数据")
+                }catch (e) {
+                    console.log(e)
+                }
+            }
+        </script>
+        
+   
+    </body>
+</html>

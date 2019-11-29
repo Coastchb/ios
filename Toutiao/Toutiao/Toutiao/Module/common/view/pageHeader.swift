@@ -9,16 +9,20 @@
 import UIKit
 
 class pageHeader: UIView {
+        
+    @IBOutlet weak var infoSearchBar: UISearchBar!
     
-    @IBOutlet weak var contentView: UIView!
-    //@IBOutlet weak var infoSearchBar: UISearchBar!
+    @IBOutlet weak var searchBar_trailing: NSLayoutConstraint!
     
+    @IBOutlet weak var cancel_btn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0)
-        print("1:\(self.contentView.frame.width)")
+        //directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0)
         //self.contentView.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "national_day4.jpg"))
-        self.layoutMargins = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+       // self.layoutMargins = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        infoSearchBar.searchTextField.borderStyle = .roundedRect
+        //infoSearchBar.showsCancelButton = false
+        cancel_btn.isHidden = true
     }
 
     /// 固有的大小

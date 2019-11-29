@@ -1,0 +1,28 @@
+TODO:
+1. 忘记密码、注册功能 (修改用户信息时，同步更新数据库和UserDefaults；否则只从UserDefaults中获取用户信息)
+4. 用户详情页面（展示页面、修改密码等）
+5. 用户上传资源功能
+8. 用户添加标签
+10.User中添加avatar_url、gender、id、phone_num等字段
+
+DONE:
+2. 标签管理页面中，新增或者删除标签要写入数据库(登录状态下)
+3. 收藏功能和收藏页面
+6. server端，从数据库提取指定用户的收藏，暂时有错！
+9. 根据用户标签来返回列表  (用户标签传递给服务器，然后返回相应的列表）
+7. 用户反馈
+
+
+坑:
+  1. url_string传输过去没有问题，但是URL(string:url_string)是nil
+     检查数据库里url_string，可能是有特殊字符啥的，删除重新插入
+  2. tableView的两种添加方式，对应去掉多余空白cell的方式也不一样。参考MeViewController和Stared_tutorials_VC
+  3. pod install了框架，但是项目中引用不了问题：
+     https://www.jianshu.com/p/49fce0395c18
+
+
+
+
+资源来源地：
+1. Github上优秀项目汇总（比如公众号GithubDaily）
+2. arxiv.org上的优质资源汇总 （猜测是有人做的）

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="Tutorial_text_cell" customModule="Toutiao" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="415" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvX-YP-j1G">
+                        <rect key="frame" x="20" y="59" width="278" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-circle-outline" translatesAutoresizingMaskIntoConstraints="NO" id="iFB-6G-Hli">
+                        <rect key="frame" x="308" y="27" width="100" height="69"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="69" id="4WL-GD-24i"/>
+                            <constraint firstAttribute="width" constant="100" id="hAv-Xa-kXM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfo-IK-TO7">
+                        <rect key="frame" x="5" y="2" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="MEU-Ov-pD4"/>
+                            <constraint firstAttribute="height" constant="21" id="aaT-zm-PDu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNT-Hi-nhg" userLabel="News Title Label">
+                        <rect key="frame" x="10" y="25" width="288" height="24"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                        <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neF-G6-Etl">
+                        <rect key="frame" x="5" y="101" width="127" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="127" id="kVy-z9-cDW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yj3-4m-RkV">
+                        <rect key="frame" x="389" y="2" width="21" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="dCY-8v-Kbr"/>
+                        </constraints>
+                        <state key="normal" title="⌄">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <connections>
+                            <action selector="unfold:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iTe-K8-xkr"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rfo-IK-TO7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="270-mb-C9U"/>
+                    <constraint firstItem="neF-G6-Etl" firstAttribute="top" secondItem="NvX-YP-j1G" secondAttribute="bottom" constant="8" id="Bbv-8G-I2P"/>
+                    <constraint firstItem="rfo-IK-TO7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="JZo-IO-01x"/>
+                    <constraint firstAttribute="trailing" secondItem="Yj3-4m-RkV" secondAttribute="trailing" constant="5" id="Mfk-RS-lyo"/>
+                    <constraint firstAttribute="bottom" secondItem="NvX-YP-j1G" secondAttribute="bottom" constant="30" id="Ro4-sb-Ayg"/>
+                    <constraint firstItem="iFB-6G-Hli" firstAttribute="leading" secondItem="RNT-Hi-nhg" secondAttribute="trailing" constant="10" id="T5q-EX-uwv"/>
+                    <constraint firstItem="RNT-Hi-nhg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UAC-2I-A32"/>
+                    <constraint firstItem="neF-G6-Etl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="UIQ-WL-e7X"/>
+                    <constraint firstItem="iFB-6G-Hli" firstAttribute="leading" secondItem="NvX-YP-j1G" secondAttribute="trailing" constant="10" id="bQp-aL-s5D"/>
+                    <constraint firstItem="NvX-YP-j1G" firstAttribute="top" secondItem="RNT-Hi-nhg" secondAttribute="bottom" constant="10" id="bc9-gB-RcV"/>
+                    <constraint firstItem="iFB-6G-Hli" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dWG-Qb-Ocl"/>
+                    <constraint firstItem="RNT-Hi-nhg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="g0w-kL-t2e"/>
+                    <constraint firstItem="NvX-YP-j1G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hhk-ad-5jk"/>
+                    <constraint firstItem="Yj3-4m-RkV" firstAttribute="leading" secondItem="rfo-IK-TO7" secondAttribute="trailing" constant="342" id="jEb-6V-nAU"/>
+                    <constraint firstAttribute="bottom" secondItem="neF-G6-Etl" secondAttribute="bottom" constant="1" id="kUj-2a-fQF"/>
+                    <constraint firstItem="Yj3-4m-RkV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="uSK-Kb-Pjh"/>
+                    <constraint firstAttribute="trailing" secondItem="iFB-6G-Hli" secondAttribute="trailing" constant="7" id="z1P-EN-O8a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="newsAbstractLabel" destination="NvX-YP-j1G" id="MgR-Oj-N3T"/>
+                <outlet property="newsPicture" destination="iFB-6G-Hli" id="DWt-PB-NBj"/>
+                <outlet property="newsTitleLabel" destination="RNT-Hi-nhg" id="vAh-vF-j2n"/>
+                <outlet property="scoreLabel" destination="neF-G6-Etl" id="nuo-Kl-XMT"/>
+                <outlet property="tagLabel" destination="rfo-IK-TO7" id="1xG-j4-uo1"/>
+            </connections>
+            <point key="canvasLocation" x="-83.333333333333343" y="-86.049107142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="message-circle-outline" width="128" height="128"/>
+    </resources>
+</document>

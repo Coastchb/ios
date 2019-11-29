@@ -35,7 +35,7 @@ class RecommendVC_old: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "newsListCell", for: indexPath)
 
-        if let cell = tableCell as? NewsListCell {
+        if let cell = tableCell as? Tutorial_text_cell {
             //print("ok")
             let (id, title, abstract, body) = all_news[indexPath.row]
 

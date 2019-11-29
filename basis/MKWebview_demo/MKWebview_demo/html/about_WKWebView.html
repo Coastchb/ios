@@ -1,0 +1,740 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="一、前言 近日，有朋友问我关于WKWebView与JS的交互问题，可我之前一直使用的是UIWebView，也不曾做过WKWebView的交互啊！接下来大家一块学习下WKWebView是怎么实现原生代码" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>【Swift】WKWebView与JS的交互使用 - 零零圈圈 - 博客园</title>
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=sqi5FxOybx6gjGoG6Zfy1wD-0AwznLNLYOVx7Y9tIN0" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simpleblue/bundle-simpleblue.min.css?v=MH15aYd6DmX-6TABpA2xkiKENy3GAhiM2dh5rOPH89I" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/xjf125/custom.css?v=NsWUoD046XlzVPa0fH25bUgZ66c=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/simpleblue/bundle-simpleblue-mobile.min.css?v=_zt2QFQyJHJRlBTpIRPn4DadnHSequpRNJvrnOfJ3Go" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xjf125/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xjf125/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xjf125/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=ruOFvx8_pDlyiWjHGHyOXclVmNo396_IKB8YFZjMllo"></script>
+    <script>
+        var currentBlogId = 232478;
+        var currentBlogApp = 'xjf125';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xjf125/"></a>
+</div>
+<div class="subtitle">
+
+</div>
+
+        </div>
+        <div id="navigator">
+            
+<ul id="navList">
+    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+    <li id="nav_myhome">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xjf125/">
+首页</a>
+</li>
+    <li id="nav_newpost">
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+    <li id="nav_contact">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%9B%B6%E9%9B%B6%E5%9C%88%E5%9C%88">
+联系</a></li>
+    <li id="nav_rss">
+</li>
+    <li id="nav_admin">
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+            <div class="blogStats">
+                
+<span id="stats_post_count">随笔 -
+101"";</span>
+<span id="stats_article_count">文章 -
+1"";</span>
+<!-- <span id="stats-comment_count"></span> -->
+<span id="stats_comment_count">评论 -
+11</span>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+                <div id="post_detail">
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/xjf125/p/11040902.html">【Swift】WKWebView与JS的交互使用</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h2>一、前言　　</h2>
+<p>　　近日，有朋友问我关于WKWebView与JS的交互问题，可我之前一直使用的是UIWebView，也不曾做过WKWebView的交互啊！接下来大家一块学习下WKWebView是怎么实现原生代码和JS交互的。2016年时候曾写过一篇关于UIWebView与JS的交互。<span style="color: #ff0000;"><a href="https://www.cnblogs.com/xjf125/p/5360288.html" target="_blank"><span style="color: #ff0000;">传送门&gt;&gt;&gt;</span></a></span><br /><br /></p>
+<h2>二、WKWebView</h2>
+<ul class=" list-paddingleft-2">
+<li>
+<p>支持更多的HTML5的特性</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>高达60fps滚动刷新频率与内置手势</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>与Safari相容的JavaScript引擎</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>在性能、稳定性方面有很大提升占用内存更少 协议方法及功能都更细致</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>可获取加载进度等。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<h2>三、WKWebView的代理方法</h2>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">/*</span><span style="color: #008000;">! @abstract The web view's navigation delegate. </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+    weak open </span><span style="color: #0000ff;">var</span> navigationDelegate: WKNavigationDelegate?
+    
+    <span style="color: #008000;">/*</span><span style="color: #008000;">! @abstract The web view's user interface delegate. </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+    weak open </span><span style="color: #0000ff;">var</span> uiDelegate: WKUIDelegate?</pre>
+</div>
+<h2>三、WKNavigationDelegate的代理方法</h2>
+<div class="cnblogs_code">
+<pre> <span style="color: #008000;">//</span><span style="color: #008000;">判断链接是否允许跳转</span>
+   optional func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -&gt;<span style="color: #000000;"> Void)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">拿到响应后决定是否允许跳转</span>
+    optional func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -&gt;<span style="color: #000000;"> Void)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">链接开始加载时调用</span>
+   optional func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!<span style="color: #000000;">)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">收到服务器重定向时调用</span>
+   optional func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!<span style="color: #000000;">)
+
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">加载错误时调用</span>
+   optional func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!<span style="color: #000000;">, withError error: Error)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">当内容开始到达主帧时被调用（即将完成）</span>
+    optional func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!<span style="color: #000000;">)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">加载完成</span>
+    optional func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!<span style="color: #000000;">)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">在提交的主帧中发生错误时调用</span>
+    optional func webView(_ webView: WKWebView, didFail navigation: WKNavigation!<span style="color: #000000;">, withError error: Error)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">当webView需要响应身份验证时调用(如需验证服务器证书)</span>
+    optional func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -&gt;<span style="color: #000000;"> Void)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">当webView的web内容进程被终止时调用。(iOS 9.0之后)</span>
+   optional func webViewWebContentProcessDidTerminate(_ webView: WKWebView)</pre>
+</div>
+<h2>四、WKUIDelegate的代理方法</h2>
+<p>　　用来做一些页面上的事件，弹窗警告，提醒等。</p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">//</span><span style="color: #008000;">接收到警告面板</span>
+    optional func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -&gt;<span style="color: #000000;"> Void)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">接收到确认面板</span>
+   optional func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -&gt;<span style="color: #000000;"> Void)
+     
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">接收到输入框</span>
+   optional func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -&gt; Void)</pre>
+</div>
+<h2>五、WKWebView与JS的交互使用</h2>
+<h4>　　首页创建html文件，代码如下：</h4>
+<div class="cnblogs_code">
+<pre>&lt;html lang="en"&gt;
+    
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;JS交互&lt;/title&gt;
+        
+        &lt;style&gt;<span style="color: #000000;">
+            
+            body {
+                font</span>-<span style="color: #000000;">size:30px;
+                text</span>-<span style="color: #000000;">align:center;
+            }
+        
+        </span>*<span style="color: #000000;"> {
+            margin: 30px;
+            padding: </span>0<span style="color: #000000;">;
+        }
+        
+        h1{
+            color: red;
+        }
+        
+        button{
+            width: 300px;
+            height: 50px;
+            font</span>-<span style="color: #000000;">size: 30px;
+        }
+        
+            </span>&lt;/style&gt;
+        
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;WKWebview与iOS交互&lt;/h1&gt;
+        &lt;h2&gt;&lt;/h2&gt;
+        &lt;button onclick="testA()"&gt;点击alert弹框&lt;/button&gt;
+        &lt;button onclick="testB('我是弹窗内容')"&gt;点击alert有参弹窗&lt;/button&gt;
+        &lt;button onclick="testConfrim()"&gt;点击confrim弹窗&lt;/button&gt;
+        &lt;button onclick="buttonAction()"&gt;向iOS端传递数据&lt;/button&gt;
+        &lt;script type="text/javascript"&gt;
+            
+            <span style="color: #008000;">//</span><span style="color: #008000;">无参数函数</span>
+            <span style="color: #0000ff;">function</span><span style="color: #000000;"> testA() {
+                alert(</span>"我是JS中的弹窗消息"<span style="color: #000000;">);
+            }
+        
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">有参数函数</span>
+            <span style="color: #0000ff;">function</span><span style="color: #000000;"> testB(value) {
+                alert(value);
+            }
+        
+            </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> testC(value) {
+                </span><span style="color: #0000ff;">return</span> value + "value"<span style="color: #000000;">;
+            }
+        
+            </span><span style="color: #008000;">//</span><span style="color: #008000;">接受iOS端传过来的参数，</span>
+            <span style="color: #0000ff;">function</span><span style="color: #000000;"> testObject(name,age) {
+                </span><span style="color: #0000ff;">var</span> object =<span style="color: #000000;"> {name:name,age:age};
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> object;
+            }
+        
+            </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> testConfrim() {
+                comfirm(</span>"确定修改数据吗？"<span style="color: #000000;">)
+            }
+        
+            </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> buttonAction(){
+                </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {
+                    </span>&lt;!-- js 向iOS 传递数据--&gt;<span style="color: #000000;">
+                    window.webkit.messageHandlers.getMessage.postMessage(</span>"我是js传递过来的数据"<span style="color: #000000;">)
+                }</span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (e) {
+                    console.log(e)
+                }
+            }
+        </span>&lt;/script&gt;
+        
+   
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<h4>"";　　1、iOS调用js中的方法进行并传参</h4>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">案例1</span>
+self.webView?.evaluateJavaScript("testInput('123')"<span style="color: #000000;">, completionHandler: { (data
+            , error) </span><span style="color: #0000ff;">in</span><span style="color: #000000;">
+            print(data as Any)
+        })
+</span><span style="color: #008000;">//</span><span style="color: #008000;">案例2</span>
+self.webView?.evaluateJavaScript("testObject('xjf',26)", completionHandler: { (data, err) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            print(</span>"\(String(describing: data)),\(String(describing: err))"<span style="color: #000000;">)
+        })</span></pre>
+</div>
+<h4>　　2、js向iOS传递数据</h4>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(</span>"\(message.name)" + "\(message.body)"<span style="color: #000000;">)
+</span><span style="color: #008000;">//</span><span style="color: #008000;">        message.name 方法名</span><span style="color: #008000;">
+//</span><span style="color: #008000;">        message.body 传递的数据</span>
+    }</pre>
+</div>
+<h4>　　3、在js中点击按钮，进行弹窗实现</h4>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">//</span><span style="color: #008000;">MARK:WKUIDelegate</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">此方法作为js的alert方法接口的实现，默认弹出窗口应该只有提示消息，及一个确认按钮，当然可以添加更多按钮以及其他内容，但是并不会起到什么作用</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">点击确认按钮的相应事件，需要执行completionHandler，这样js才能继续执行</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">//参数 message为  js 方法 alert(&lt;message&gt;) 中的&lt;message&gt;</span>
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -&gt;<span style="color: #000000;"> Void) {
+        let alertViewController </span>= UIAlertController(title: "提示"<span style="color: #000000;">, message:message, preferredStyle: UIAlertController.Style.alert)
+        alertViewController.addAction(UIAlertAction(title: </span>"确认", style: UIAlertAction.Style.<span style="color: #0000ff;">default</span>, handler: { (action) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler()
+        }))
+        self.present(alertViewController, animated: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">, completion: nil)
+    }
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> confirm</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">作为js中confirm接口的实现，需要有提示信息以及两个相应事件， 确认及取消，并且在completionHandler中回传相应结果，确认返回YES， 取消返回NO</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">参数 message为  js 方法 confirm(&lt;message&gt;) 中的&lt;message&gt;</span>
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -&gt;<span style="color: #000000;"> Void) {
+        let alertVicwController </span>= UIAlertController(title: "提示"<span style="color: #000000;">, message: message, preferredStyle: UIAlertController.Style.alert)
+        alertVicwController.addAction(UIAlertAction(title: </span>"取消", style: UIAlertAction.Style.cancel, handler: { (alertAction) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler(</span><span style="color: #0000ff;">false</span><span style="color: #000000;">)
+        }))
+        alertVicwController.addAction(UIAlertAction(title: </span>"确定", style: UIAlertAction.Style.<span style="color: #0000ff;">default</span>, handler: { (alertAction) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler(</span><span style="color: #0000ff;">true</span><span style="color: #000000;">)
+        }))
+        self.present(alertVicwController, animated: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">, completion: nil)
+    }
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> prompt</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">作为js中prompt接口的实现，默认需要有一个输入框一个按钮，点击确认按钮回传输入值</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">当然可以添加多个按钮以及多个输入框，不过completionHandler只有一个参数，如果有多个输入框，需要将多个输入框中的值通过某种方式拼接成一个字符串回传，js接收到之后再做处理</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">参数 prompt 为 prompt(&lt;message&gt;, &lt;defaultValue&gt;);中的&lt;message&gt;</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">参数defaultText 为 prompt(&lt;message&gt;, &lt;defaultValue&gt;);中的 &lt;defaultValue&gt;</span>
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -&gt;<span style="color: #000000;"> Void) {
+        let alertViewController </span>= UIAlertController(title: prompt, message: ""<span style="color: #000000;">, preferredStyle: UIAlertController.Style.alert)
+        alertViewController.addTextField { (textField) </span><span style="color: #0000ff;">in</span><span style="color: #000000;">
+            textField.text </span>=<span style="color: #000000;"> defaultText
+        }
+        alertViewController.addAction(UIAlertAction(title: </span>"完成", style: UIAlertAction.Style.<span style="color: #0000ff;">default</span>, handler: { (alertAction) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler(alertViewController.textFields</span>![0<span style="color: #000000;">].text)
+        }))
+        self.present(alertViewController, animated: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">, completion: nil)
+    }</span></pre>
+</div>
+<h4>　　4、获取网页中节点的数据"";</h4>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">网页加载完成</span>
+-(<span style="color: #0000ff;">void</span>)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *<span style="color: #000000;">)navigation{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">设置JS</span>
+    NSString *js = @"document.getElementsByTagName('h1')[0].innerText"<span style="color: #000000;">;
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">执行JS</span>
+    [webView evaluateJavaScript:js completionHandler:^(id _Nullable response, NSError *<span style="color: #000000;"> _Nullable error) {
+        NSLog(@</span>"value: %@ error: %@"<span style="color: #000000;">, response, error);
+        
+    }];
+}</span></pre>
+</div>
+<h4>　　5、通过注入JS修改节点的内容</h4>
+<div class="cnblogs_code">
+<pre>let js = "document.getElementsByTagName('h2')[0].innerText = '这是一个iOS写入的方法'"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;">将js注入到网页中</span></pre>
+</div>
+<h4>　　6、js获取DOM节点的几种方式</h4>
+<div class="cnblogs_code">
+<pre>document.getElementById();<span style="color: #008000;">//</span><span style="color: #008000;">id名，</span>
+document.getElementsByTagName();<span style="color: #008000;">//</span><span style="color: #008000;">标签名</span>
+document.getElementsByClassName();<span style="color: #008000;">//</span><span style="color: #008000;">类名</span>
+document.getElementsByName();<span style="color: #008000;">//</span><span style="color: #008000;">name属性值，一般不用</span>
+document.querySelector();<span style="color: #008000;">//</span><span style="color: #008000;">css选择符模式，返回与该模式匹配的第一个元素，结果为一个元素；如果没找到匹配的元素，则返回null</span>
+document.querySelectorAll()<span style="color: #008000;">//</span><span style="color: #008000;">css选择符模式，返回与该模式匹配的所有元素，结果为一个类数组</span></pre>
+</div>
+<h2>"";六、<strong>JavaScriptCore</strong></h2>
+<p>　　JavaScriptCore 这个库是 Apple 在 iOS 7 之后加入到标准库的，它对 iOS Native 与 JS 做交互调用产生了划时代的影响。</p>
+<p>"";　　JavaScriptCore 大体是由 4 个类以及 1 个协议组成的：</p>
+<p><img src="https://img2018.cnblogs.com/blog/757139/201906/757139-20190617172915140-1256404204.png" alt="" width="100" height="606" /></p>
+<ul class="list-paddingleft-2">
+<li>
+<p>JSContext 是 JS 执行上下文，你可以把它理解为 JS 运行的环境。</p>
+</li>
+<li>
+<p>JSValue 是对 JavaScript 值的引用，任何 JS 中的值都可以被包装为一个 JSValue。</p>
+</li>
+<li>
+<p>JSManagedValue 是对 JSValue 的包装，加入了&ldquo;conditional retain&rdquo;。</p>
+</li>
+<li>
+<p>JSVirtualMachine 表示 JavaScript 执行的独立环境。</p>
+</li>
+</ul>
+<p>　　还有 JSExport 协议：</p>
+<div class="cnblogs_code">
+<pre><strong><span style="color: #ff0000;">实现将原生类及其实例方法，类方法和属性导出为 JavaScript 代码的协议。</span></strong></pre>
+</div>
+<p>　　这里的 JSContext，JSValue，JSManagedValue 相对比较好理解，下面我们把 JSVirtualMachine 单拎出来说明一下：</p>
+<p>　　<strong>JSVirtualMachine 的用法和其与 JSContext 的关系</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/757139/201906/757139-20190617173211153-318072837.png" alt="" width="100" height="411" /></p>
+<p>　　<span style="background-color: #f5f5f5;">JSVirtualMachine 实例表示用于 JavaScript 执行的独立环境。 您使用此类有两个主要目的：支持并发 JavaScript 执行，并管理 JavaScript 和 Objective-C 或 Swift 之间桥接的对象的内存。</span></p>
+<p>　　关于 JSVirtualMachine 的使用，一般情况下我们不用手动去创建 JSVirtualMachine。因为当我们获取 JSContext 时，获取到的 JSContext 从属于一个 JSVirtualMachine。</p>
+<p>　　每个 JavaScript 上下文（JSContext 对象）都属于一个 JSVirtualMachine。 每个 JSVirtualMachine 可以包含多个上下文，允许在上下文之间传递值（JSValue 对象）。 但是，每个 JSVirtualMachine 是不同的，即我们不能将一个 JSVirtualMachine 中创建的值传递到另一个 JSVirtualMachine 中的上下文。</p>
+<p>　　JavaScriptCore API 是线程安全的 &mdash;&mdash; 例如，我们可以从任何线程创建 JSValue 对象或运行 JS 脚本 - 但是，尝试使用相同 JSVirtualMachine 的所有其他线程将被阻塞。 要在多个线程上同时（并发）运行 JavaScript 脚本，请为每个线程使用单独的 JSVirtualMachine 实例。</p>
+<p>七、案例源码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">class NAHomeViewController : UIViewController,WKNavigationDelegate,WKScriptMessageHandler,WKUIDelegate,UINavigationControllerDelegate {
+    
+    </span><span style="color: #0000ff;">var</span> webView : WKWebView?
+    <span style="color: #0000ff;">var</span> content : JSContext?
+    <span style="color: #0000ff;">var</span> userContentController : WKUserContentController?<span style="color: #000000;">
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title </span>= "首页"
+       
+        <span style="color: #008000;">//</span><span style="color: #008000;">创建配置对象</span>
+        let configuration =<span style="color: #000000;"> WKWebViewConfiguration()
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">为WKWebViewController设置偏好设置</span>
+        let preference =<span style="color: #000000;"> WKPreferences()
+        configuration.preferences </span>=<span style="color: #000000;"> preference
+        
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">允许native与js交互</span>
+        preference.javaScriptEnabled = <span style="color: #0000ff;">true</span>
+
+        <span style="color: #008000;">//</span><span style="color: #008000;">初识化webView</span>
+        let webView = WKWebView.init(frame: CGRect(x: 0, y: 64, width: self.view.frame.size.width, height: 300<span style="color: #000000;">))
+        let path </span>= Bundle.main.path(forResource: "wKWebView", ofType: "html"<span style="color: #000000;">)
+        webView.navigationDelegate </span>=<span style="color: #000000;"> self
+        webView.uiDelegate </span>=<span style="color: #000000;"> self
+        let request </span>= URLRequest.init(url: URL.init(fileURLWithPath: path!<span style="color: #000000;">))
+        webView.load(request)
+        self.view.addSubview(webView)
+        self.webView </span>=<span style="color: #000000;"> webView
+        
+        let userContentController </span>=<span style="color: #000000;"> WKUserContentController()
+        configuration.userContentController </span>=<span style="color: #000000;"> userContentController
+        userContentController.add(self,name: </span>"getMessage"<span style="color: #000000;">)
+        self.userContentController </span>=<span style="color: #000000;"> userContentController
+        
+        let btn </span>= UIButton.init(frame: CGRect(x: 100, y: 390, width: 100, height: 50<span style="color: #000000;">))
+        btn.setTitleColor(.black, </span><span style="color: #0000ff;">for</span><span style="color: #000000;">: .normal)
+        btn.setTitle(</span>"oc调用js", <span style="color: #0000ff;">for</span><span style="color: #000000;">: .normal)
+        btn.addTarget(self, action: #selector(btnAction), </span><span style="color: #0000ff;">for</span><span style="color: #000000;">: .touchUpInside)
+        self.view.addSubview(btn)
+        
+        self.view.backgroundColor </span>=<span style="color: #000000;"> .white
+    }
+    
+    @objc func btnAction() {
+        self.webView</span>?.evaluateJavaScript("testInput('123')"<span style="color: #000000;">, completionHandler: { (data
+            , error) </span><span style="color: #0000ff;">in</span><span style="color: #000000;">
+            print(data as Any)
+        })
+        self.webView</span>?.evaluateJavaScript("testObject('xjf',26)", completionHandler: { (data, err) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            print(</span>"\(String(describing: data)),\(String(describing: err))"<span style="color: #000000;">)
+        })
+    }
+    
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(</span>"\(message.name)" + "\(message.body)"<span style="color: #000000;">)
+</span><span style="color: #008000;">//</span><span style="color: #008000;">        message.name 方法名</span><span style="color: #008000;">
+//</span><span style="color: #008000;">        message.body 传递的数据</span>
+<span style="color: #000000;">    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> Dispose of any resources that can be recreated.</span>
+<span style="color: #000000;">    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation</span>!<span style="color: #000000;">) {
+</span><span style="color: #008000;">//</span><span style="color: #008000;">        webView.evaluateJavaScript("testA()") { (data, err) in</span><span style="color: #008000;">
+//</span><span style="color: #008000;">            print("\(String(describing: data)),\(String(describing: err))")</span><span style="color: #008000;">
+//</span><span style="color: #008000;">        }</span>
+<span style="color: #000000;">    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation</span>!<span style="color: #000000;">, withError error: Error) {
+        print(</span>"\(error)"<span style="color: #000000;">)
+    }
+    
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">MARK:WKUIDelegate</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">此方法作为js的alert方法接口的实现，默认弹出窗口应该只有提示消息，及一个确认按钮，当然可以添加更多按钮以及其他内容，但是并不会起到什么作用</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">点击确认按钮的相应事件，需要执行completionHandler，这样js才能继续执行</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">//参数 message为  js 方法 alert(&lt;message&gt;) 中的&lt;message&gt;</span>
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -&gt;<span style="color: #000000;"> Void) {
+        let alertViewController </span>= UIAlertController(title: "提示"<span style="color: #000000;">, message:message, preferredStyle: UIAlertController.Style.alert)
+        alertViewController.addAction(UIAlertAction(title: </span>"确认", style: UIAlertAction.Style.<span style="color: #0000ff;">default</span>, handler: { (action) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler()
+        }))
+        self.present(alertViewController, animated: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">, completion: nil)
+    }
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> confirm</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">作为js中confirm接口的实现，需要有提示信息以及两个相应事件， 确认及取消，并且在completionHandler中回传相应结果，确认返回YES， 取消返回NO</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">参数 message为  js 方法 confirm(&lt;message&gt;) 中的&lt;message&gt;</span>
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -&gt;<span style="color: #000000;"> Void) {
+        let alertVicwController </span>= UIAlertController(title: "提示"<span style="color: #000000;">, message: message, preferredStyle: UIAlertController.Style.alert)
+        alertVicwController.addAction(UIAlertAction(title: </span>"取消", style: UIAlertAction.Style.cancel, handler: { (alertAction) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler(</span><span style="color: #0000ff;">false</span><span style="color: #000000;">)
+        }))
+        alertVicwController.addAction(UIAlertAction(title: </span>"确定", style: UIAlertAction.Style.<span style="color: #0000ff;">default</span>, handler: { (alertAction) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler(</span><span style="color: #0000ff;">true</span><span style="color: #000000;">)
+        }))
+        self.present(alertVicwController, animated: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">, completion: nil)
+    }
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> prompt</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">作为js中prompt接口的实现，默认需要有一个输入框一个按钮，点击确认按钮回传输入值</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">当然可以添加多个按钮以及多个输入框，不过completionHandler只有一个参数，如果有多个输入框，需要将多个输入框中的值通过某种方式拼接成一个字符串回传，js接收到之后再做处理</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">参数 prompt 为 prompt(&lt;message&gt;, &lt;defaultValue&gt;);中的&lt;message&gt;</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">参数defaultText 为 prompt(&lt;message&gt;, &lt;defaultValue&gt;);中的 &lt;defaultValue&gt;</span>
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -&gt;<span style="color: #000000;"> Void) {
+        let alertViewController </span>= UIAlertController(title: prompt, message: ""<span style="color: #000000;">, preferredStyle: UIAlertController.Style.alert)
+        alertViewController.addTextField { (textField) </span><span style="color: #0000ff;">in</span><span style="color: #000000;">
+            textField.text </span>=<span style="color: #000000;"> defaultText
+        }
+        alertViewController.addAction(UIAlertAction(title: </span>"完成", style: UIAlertAction.Style.<span style="color: #0000ff;">default</span>, handler: { (alertAction) <span style="color: #0000ff;">in</span><span style="color: #000000;">
+            completionHandler(alertViewController.textFields</span>![0<span style="color: #000000;">].text)
+        }))
+        self.present(alertViewController, animated: </span><span style="color: #0000ff;">true</span><span style="color: #000000;">, completion: nil)
+    }
+}</span></pre>
+</div>
+<p>"";</p>
+<p>"";　　参考连接：<a href="https://mp.weixin.qq.com/s/Tp7WxHXp_0EATIKvSuBhlw" target="_blank">https://mp.weixin.qq.com/s/Tp7WxHXp_0EATIKvSuBhlw</a></p>
+<p>"";</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @
+<span id="post-date">2019-06-17 17:35</span>"";<a href="https://www.cnblogs.com/xjf125/">零零圈圈</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>) <a href="https://i.cnblogs.com/EditPosts.aspx?postid=11040902" rel="nofollow"> 编辑</a> <a href="javascript:void(0)" onclick="AddToWz(11040902); return false;">收藏</a>
+</div>
+        </div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 232478, cb_blogApp = 'xjf125', cb_blogUserGuid = '63f0c979-6bf9-e411-b908-9dcfd8948a71';
+    var cb_entryId = 11040902, cb_entryCreatedDate = '2019-06-17 17:35', cb_postType = 1;
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>    </div>
+</div>
+            </div>
+        </div>
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+                
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>
+                <script>loadBlogDefaultCalendar();</script>
+                <div id="leftcontentcontainer">
+                    <!-- begin:SingleColumn -->
+                    <div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+                    <!-- end:  SingleColumn -->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+        <!--done-->
+Copyright &copy; 2019 零零圈圈
+<br /><span id="poweredby">Powered by .NET Core 3.0.0 on Linux</span>
+
+    </div>
+</div>
+
+    <div id="page_end_html">
+        <div class="fixedIndexs" style="position: fixed;bottom: 120px;display: none"></div>
+<script language="javascript" type="text/javascript">
+    var fixedIndexs=$('.fixedIndexs');
+    var hs = $('#cnblogs_post_body h2');
+    function openorclose(a) {
+        $("#indexs").slideToggle("fast");
+        var text=$(a).text();
+        if(text=='[-]'){
+            $(a).text("[+]");
+            return;
+        }
+        $(a).text("[-]");
+    }
+    function createIndexs(){
+        var indexs_container=$('<div style="border:solid 1px #ccc; background:#eee;width:180px;padding:4px 10px;"></div>');
+        var indexs_controller=$('<p style="text-align:right;margin:0;"><span style="float:left;">目录<a onclick="javascript:openorclose(this);" style="cursor: pointer">[-]</a></span><a href="#top" style="text-align: right;color: #444">返回顶部</a></p>');
+        var indexs=$('<ol id="indexs" style="margin-left: 14px; padding-left: 14px; line-height: 160%; display: block;"></ol>');
+        indexs_container.append(indexs_controller).append(indexs);
+        $.each(hs,function(i,h){
+            $(h).before('<a name="index_'+i+'"></a>');
+            indexs.append('<li style="list-style:decimal"><a href="#index_'+i+'" id="active_'+i+'">'+$(h).text()+'</a></li>');
+        });
+        if(hs.length!=0){
+            fixedIndexs.append(indexs_container);
+            //get home div right offset
+            fixedIndexs.css('right',$("#home").offset().left+32+'px');
+        }
+    }
+    createIndexs();
+    $(window).scroll(function(event){
+        //clear all active
+        $("#indexs li a").removeClass("active");
+        //set active
+        $.each(hs,function (i, h) {
+            var next_active_top;
+            i<(hs.length-1)?next_active_top=hs.eq(i+1).offset().top:hs.last().offset().top;
+            if($(h).offset().top<$(window).scrollTop()+30&&$(window).scrollTop()+30<next_active_top){
+                $("#active_"+i).addClass("active");
+            }
+            if(i+1==hs.length&&$(window).scrollTop()+30>hs.last().offset().top){
+                $("#active_"+i).addClass("active");
+            }
+        });
+        //auto display
+        if($(window).scrollTop()>$(window).height()){
+            fixedIndexs.show();
+            return;
+        }
+        fixedIndexs.hide();
+    });
+    $(window).resize(function (event) {
+        fixedIndexs.hide();
+        fixedIndexs.css('right',$("#home").offset().left+32+'px');
+        if($(window).scrollTop()>$(window).height()){
+            fixedIndexs.show();
+        }
+    })
+</script>
+    </div>
+</body>
+</html>

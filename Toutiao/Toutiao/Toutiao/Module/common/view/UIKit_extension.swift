@@ -105,3 +105,22 @@ extension UIView {
   }
   
 }
+
+// 获取view所在的controller
+extension UIView{
+
+    func getFirstViewController()->UIViewController?{
+
+        for view in sequence(first: self.superview, next: {$0?.superview}){
+
+            if let responder = view?.next{
+
+                if responder.isKind(of: UIViewController.self){
+
+                    return responder as? UIViewController
+                }
+            }
+        }
+        return nil
+    }
+}
