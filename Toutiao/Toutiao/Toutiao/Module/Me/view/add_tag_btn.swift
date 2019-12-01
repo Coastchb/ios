@@ -24,8 +24,8 @@ class add_tag_btn: UIView {
     /// 重写 frame
     override var frame: CGRect {
         didSet {
-            super.frame = CGRect(x: 0, y: 0, width: 130
-                , height: 30)
+            super.frame = CGRect(x: 0, y: 20, width: 130
+                , height: 20)
         }
     }
 

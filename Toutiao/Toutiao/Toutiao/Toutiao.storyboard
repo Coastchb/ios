@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dlX-lS-dPp">
-                                <rect key="frame" x="30" y="10" width="315" height="627"/>
+                                <rect key="frame" x="30" y="5" width="315" height="632"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="50" id="gSF-5u-Rpe">
                                     <size key="itemSize" width="120" height="40"/>
@@ -76,7 +76,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dlX-lS-dPp" firstAttribute="top" secondItem="y9C-pZ-B9A" secondAttribute="bottom" constant="10" id="Jqq-Kj-ix6"/>
+                            <constraint firstItem="dlX-lS-dPp" firstAttribute="top" secondItem="y9C-pZ-B9A" secondAttribute="bottom" constant="5" id="Jqq-Kj-ix6"/>
                             <constraint firstAttribute="trailing" secondItem="dlX-lS-dPp" secondAttribute="trailing" constant="30" id="Vp1-pz-8dG"/>
                             <constraint firstItem="UMh-Ma-KXH" firstAttribute="top" secondItem="dlX-lS-dPp" secondAttribute="bottom" constant="10" id="afP-LU-FJP"/>
                             <constraint firstItem="dlX-lS-dPp" firstAttribute="leading" secondItem="8vy-10-yOe" secondAttribute="leading" constant="30" id="rrd-4L-GvL"/>
@@ -100,11 +100,11 @@
                         <viewControllerLayoutGuide type="bottom" id="E91-gy-WJH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OAm-A1-iIr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-Gr-X4m">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -328,7 +328,7 @@
                 <navigationController title="info" automaticallyAdjustsScrollViewInsets="NO" id="yNi-oS-fMv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="动态" image="message.fill" catalog="system" id="ZHr-wa-XfU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="P9c-lJ-7w2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P9c-lJ-7w2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>

@@ -51,9 +51,14 @@ class Tag_item {
         }
     }
     
-    static func get_user_tags(user_name:String?) -> [Int]? {
+    static func get_user_tags(user_name:String?) -> [Int] {
         if(user_name == nil) {
-            return UserDefaults.standard.array(forKey: USER_TAGS_KEY) as? [Int]
+            let tmp_default_tags = UserDefaults.standard.array(forKey: USER_TAGS_KEY)
+            if tmp_default_tags != nil {
+                return tmp_default_tags as! [Int]
+            } else {
+                return []
+            }
         } else {
             // get tags from DB
             var user_tags = get_user_tags_from_DB(user_name: user_name!)

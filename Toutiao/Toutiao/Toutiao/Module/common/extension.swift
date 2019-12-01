@@ -9,3 +9,22 @@
 import Foundation
 
 
+extension UITextField {
+    func get_text(default_str: String) -> String {
+        if self.text! == "" {
+            return default_str
+        } else {
+            return self.text!
+        }
+    }
+}
+
+extension UITextView {
+    func get_text(default_str: String) -> String {
+        if self.text! == "" {
+            return default_str
+        } else {
+            return self.text!
+        }
+    }
+}

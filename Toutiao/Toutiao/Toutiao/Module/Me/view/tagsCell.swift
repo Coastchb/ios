@@ -17,6 +17,9 @@ class tagsCell: UICollectionViewCell {
     
     var is_selected = false {
         didSet{
+            InfoViewController.to_update = true
+            Tutorial_video.to_update = true
+            Tutorial_text.to_update = true
             icon_label.text = is_selected ? "✅" : ""
         }
     }
@@ -48,9 +51,6 @@ class tagsCell: UICollectionViewCell {
                         alterVC.dismiss(animated: false, completion: nil);
                     }
         }
-
-
-        
     }
     
     /// 重写 frame

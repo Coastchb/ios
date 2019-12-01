@@ -13,59 +13,52 @@ class Tutorial_text: UITableViewController {
     
     var viewed_tutorial_id = [Int]()
     
+    static var to_update = false
+    
+    func down_refresh_complete_handle(tutorials: [(Int, String, String, String, String, Int)]) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+            print("上拉刷新")
+            self.tableView.mj_header?.endRefreshing()
+            self.all_tutorials += tutorials
+            self.tableView.reloadData()
+            if self.tableView.mj_header!.isRefreshing { self.tableView.mj_header!.endRefreshing() }
+            self.tableView.mj_header!.pullingPercent = 0.0
+            
+        })
+    }
+    
+    func up_refresh_complete_handle(tutorials: [(Int, String, String, String, String, Int)]) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+            print("上拉刷新")
+            self.tableView.mj_footer?.endRefreshing()
+            self.all_tutorials += tutorials
+            self.tableView.reloadData()
+            if self.tableView.mj_footer!.isRefreshing { self.tableView.mj_header!.endRefreshing() }
+            self.tableView.mj_footer!.pullingPercent = 0.0
+            
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        all_tutorials = get_all_tutorials()!
         //print(all_tutorials)
         tableView.register(UINib(nibName: "Tutorial_text_cell", bundle: nil), forCellReuseIdentifier: "tutorial_text_cell")
         
         // 顶部刷新控件
         tableView.mj_header = RefreshAutoGifHeader(refreshingBlock: { [weak self] in
             // 获取更新资讯
-            /*DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                self!.tableView.reloadData()
-                self!.tableView.mj_header?.endRefreshing()
-            })*/
-            
-            var more = get_all_tutorials()
-            more.forEach { one in
-                 self!.all_tutorials.append(one)
-             }
-            if self!.tableView.mj_header!.isRefreshing { self!.tableView.mj_header!.endRefreshing() }
-            self!.tableView.mj_header!.pullingPercent = 0.0
-            self!.tableView.reloadData()
-            
+            get_all_tutorials(complete_handle: self?.down_refresh_complete_handle)
         })
         tableView.mj_header?.isAutomaticallyChangeAlpha = true
         
         // 底部刷新控件
         tableView.mj_footer = RefreshAutoGifFooter(refreshingBlock: { [weak self] in
                // 获取资讯列表数据，加载更多
-            
-            /*
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                    print("footer refreshing...")
-                     var more = get_all()
-                     more.forEach { one in
-                         self!.all_tutorials.append(one)
-                     }
-                    if self!.tableView.mj_footer.isRefreshing { self!.tableView.mj_footer.endRefreshing() }
-                    self!.tableView.mj_footer.pullingPercent = 0.0
-                     self!.tableView.reloadData()
-                //self!.tableView.reloadData()
-                //self!.tableView.mj_footer?.endRefreshingWithNoMoreData()
-            })*/
- 
-            var more = get_all_tutorials()
-            more.forEach { one in
-                 self!.all_tutorials.append(one)
-             }
-            if self!.tableView.mj_footer!.isRefreshing { self!.tableView.mj_footer!.endRefreshing() }
-            self!.tableView.mj_footer!.pullingPercent = 0.0
-             self!.tableView.reloadData()
-            //self!.tableView.mj_footer?.endRefreshingWithNoMoreData()
+            get_all_tutorials(complete_handle: self?.up_refresh_complete_handle)
            })
-        tableView.mj_footer!.isAutomaticallyChangeAlpha = true
+        tableView.mj_footer?.isAutomaticallyChangeAlpha = true
     }
 
     // MARK: - Table view data source
@@ -116,14 +109,18 @@ class Tutorial_text: UITableViewController {
         var tutorial_detail = all_tutorials[indexPath.row]
         print("\(tutorial_detail.4)")
         var detail_vc = webVC()
+        detail_vc.hidesBottomBarWhenPushed = true
         detail_vc.url_string = tutorial_detail.4
         self.navigationController?.pushViewController(detail_vc, animated: true)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        all_tutorials = get_all_tutorials()
-        print("all_tutorials.count:\(all_tutorials.count)")
+        if(Tutorial_text.to_update) {
+            all_tutorials = get_all_tutorials()!
+            tableView.reloadData()
+            Tutorial_text.to_update = false
+        }
         /*
         if(all_tutorials.count == 0) {
             let alter_vc = UIAlertController(title: "请设置您的标签", message: "", preferredStyle: .alert)
@@ -139,8 +136,6 @@ class Tutorial_text: UITableViewController {
             alter_vc.addAction(add_action)
             self.present(alter_vc, animated: true)
         }*/
-        
-        tableView.reloadData()
     }
         
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

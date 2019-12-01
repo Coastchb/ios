@@ -1,9 +1,10 @@
 TODO:
 1. 忘记密码、注册功能 (修改用户信息时，同步更新数据库和UserDefaults；否则只从UserDefaults中获取用户信息)
 4. 用户详情页面（展示页面、修改密码等）
-5. 用户上传资源功能
-8. 用户添加标签
 10.User中添加avatar_url、gender、id、phone_num等字段
+12. 将所有request都基于Alamofire
+13. 用户发布新教程和添加新标签可能会crash，可能是获取第一响应者导致的。
+
 
 DONE:
 2. 标签管理页面中，新增或者删除标签要写入数据库(登录状态下)
@@ -11,6 +12,9 @@ DONE:
 6. server端，从数据库提取指定用户的收藏，暂时有错！
 9. 根据用户标签来返回列表  (用户标签传递给服务器，然后返回相应的列表）
 7. 用户反馈
+5. 用户上传资源功能
+8. 用户添加标签
+11. 关于我们
 
 
 坑:
@@ -19,6 +23,9 @@ DONE:
   2. tableView的两种添加方式，对应去掉多余空白cell的方式也不一样。参考MeViewController和Stared_tutorials_VC
   3. pod install了框架，但是项目中引用不了问题：
      https://www.jianshu.com/p/49fce0395c18
+
+  4. Alamofire是异步的，想要异步进程结束再返回值的话，加个循环监听即可。
+     Alamofire可以向服务器传递json数据，也可以传递数组。（参考get_all_tutorials()函数）
 
 
 

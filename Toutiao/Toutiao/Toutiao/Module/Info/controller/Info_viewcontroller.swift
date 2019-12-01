@@ -12,10 +12,14 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var all_blogs = [(Int, String, String, String, String, Int)]()
     var viewed_tutorial_id = [Int]()
     
+    static var to_update = false
+    
     @IBOutlet weak var tableView: UITableView!
     
      override func viewDidLoad() {
         super.viewDidLoad()
+        
+        all_blogs = get_all_blogs()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -124,12 +128,17 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
            print("\(blog_detail.4)")
            var detail_vc = webVC()
            detail_vc.url_string = blog_detail.4
+           detail_vc.hidesBottomBarWhenPushed = true
            self.navigationController?.pushViewController(detail_vc, animated: true)
            
        }
        
     override func viewWillAppear(_ animated: Bool) {
-           all_blogs = get_all_blogs()
+        if (InfoViewController.to_update) {
+            all_blogs = get_all_blogs()
+            tableView.reloadData()
+            InfoViewController.to_update = false
+        }
         /*
            if(all_blogs.count == 0) {
                let alter_vc = UIAlertController(title: "请设置您的标签", message: "", preferredStyle: .alert)
@@ -145,7 +154,6 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
                alter_vc.addAction(add_action)
                self.present(alter_vc, animated: true)
            }*/
-           tableView.reloadData()
        }
            
        func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

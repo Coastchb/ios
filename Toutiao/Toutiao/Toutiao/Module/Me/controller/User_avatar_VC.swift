@@ -19,6 +19,8 @@ class User_avatar_VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "设置头像"
+
         avatar_img_view.image = User.get_user_avatar()!
 
         // Do any additional setup after loading the view.
@@ -60,6 +62,14 @@ class User_avatar_VC: UIViewController {
         upload_avatar()
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.avatar_img_view.layer.masksToBounds = true
+        self.avatar_img_view.layer.cornerRadius = 15
+        
     }
 }
 

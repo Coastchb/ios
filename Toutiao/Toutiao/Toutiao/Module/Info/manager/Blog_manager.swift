@@ -12,15 +12,15 @@ func get_all_blogs() -> [(Int, String, String, String, String, Int)] {
     
     var urlPath = "http://localhost:8888/show_all_blogs"
     var user_tags = Tag_item.get_user_tags(user_name: User.get_user_name())
-    if (user_tags == nil || user_tags!.count == 0) {
+    if (user_tags == nil || user_tags.count == 0) {
         return []
     }
     var tag_str = ""
-    for i in 0..<(user_tags!.count - 1) {
-        tag_str += String(user_tags![i])
+    for i in 0..<(user_tags.count - 1) {
+        tag_str += String(user_tags[i])
         tag_str += "&"
     }
-    tag_str += String(user_tags!.last!)
+    tag_str += String(user_tags.last!)
     
     urlPath += "?"
     urlPath += tag_str

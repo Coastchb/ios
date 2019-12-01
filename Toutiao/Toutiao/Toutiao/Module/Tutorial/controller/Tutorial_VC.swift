@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import SGPagingView
 
 class TutorialViewController: UIViewController {
     private var pageTitleView: SGPageTitleView? = nil
     private var pageContentCollectionView: SGPageContentCollectionView? = nil
     
+    @objc func add_tutorial() {
+        let vc = Add_tutorial_VC()
+        self.present(vc, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         self.navigationItem.title = "优质教程"
         setupSGPagingView()
+        
+        let item=UIBarButtonItem(title:"发布",style:.plain,target:self,action:Selector(("add_tutorial")))
+        navigationItem.rightBarButtonItem = item
     }
       
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +50,7 @@ class TutorialViewController: UIViewController {
         
         var titles = ["图文", "视频"]
           let configure = SGPageTitleViewConfigure()
-          configure.indicatorStyle = .Dynamic
+        configure.indicatorStyle = SGIndicatorStyle(rawValue: 0)
           configure.titleAdditionalWidth = 35
           
           self.pageTitleView = SGPageTitleView(frame: CGRect(x: view.frame.size.width/4, y: pageTitleViewY, width: view.frame.size.width/2, height: 44), delegate: self, titleNames: titles, configure: configure)
@@ -59,18 +67,20 @@ class TutorialViewController: UIViewController {
           let contentViewHeight = view.frame.size.height //- self.pageTitleView!.frame.maxY
           let contentRect = CGRect(x: 0, y: 0, width: view.frame.size.width, height: contentViewHeight)
           self.pageContentCollectionView = SGPageContentCollectionView(frame: contentRect, parentVC: self, childVCs: childVCs)
-          pageContentCollectionView?.delegateCollectionView = self
+          //pageContentCollectionView?.delegateCollectionView = self
           view.addSubview(pageContentCollectionView!)
       }
   }
 
   extension TutorialViewController: SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate {
-      func pageTitleView(pageTitleView: SGPageTitleView, index: Int) {
-          pageContentCollectionView?.setPageContentCollectionView(index: index)
+    func pageTitleView(_ pageTitleView: SGPageTitleView, selectedIndex index: Int) {
+        pageContentCollectionView?.setPageContentCollectionViewCurrentIndex(index)
+       //   pageContentCollectionView?.setPageContentCollectionView(index: index)
       }
       
-      func pageContentCollectionView(pageContentCollectionView: SGPageContentCollectionView, progress: CGFloat, originalIndex: Int, targetIndex: Int) {
-          pageTitleView?.setPageTitleView(progress: progress, originalIndex: originalIndex, targetIndex: targetIndex)
+    func pageContentCollectionView(_ pageContentCollectionView: SGPageContentCollectionView, progress: CGFloat, originalIndex: Int, targetIndex: Int) {
+        
+        //  pageTitleView?.setPageTitleView(progress: progress, originalIndex: originalIndex, targetIndex: targetIndex)
       }
   }
 

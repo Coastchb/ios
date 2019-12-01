@@ -29,6 +29,13 @@ class User {
         return nil
     }
     
+    /*
+    static func get_user_id() -> Int? {
+        if let user_info = get_user_info() {
+            return user_info[
+        }
+    }*/
+    
     static func get_user_avatar() -> UIImage? {
         let user_avatar_path = UserDefaults.standard.value(forKey: USER_AVATAR_KEY) as? String
         print("user_avatar_path:\(user_avatar_path)")

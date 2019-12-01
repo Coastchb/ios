@@ -14,6 +14,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     var items = ["收藏",
                  "管理标签",
                  "反馈与建议",
+                 "关于我们",
                  "退出登录"]
    /* var logined = false {
         didSet {
@@ -69,12 +70,11 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 if let cell = tableCell as? meOtherCell {
                     var image_name = ""
                     switch indexPath.row {
-                    //case 0: image_name = "uc_account"
-                    //case 1: image_name = "uc_message"
-                    case 0: image_name = "uc_collection"
-                    case 1: image_name = "uc_setting"
-                    case 2: image_name = "uc_feedback"
-                    case 3: image_name = "log_out"
+                    case 0: image_name = "star"
+                    case 1: image_name = "tag"
+                    case 2: image_name = "feedback"
+                    case 3: image_name = "about_us"
+                    case 4: image_name = "log_out"
                     default:
                         break
                     }
@@ -106,7 +106,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 detail_vc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(detail_vc, animated: true)
             }
-        } else if(indexPath.section == 1 && indexPath.row == 3 && User.is_logined()){
+        } else if(indexPath.section == 1 && indexPath.row == 4 && User.is_logined()){
         // 退出登录            
             let alertController = UIAlertController(title: "您确定要离开了吗？",
                             message: "", preferredStyle: .alert)
@@ -142,6 +142,10 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             self.navigationController?.pushViewController(vc, animated: true)
         } else if (indexPath.section == 1 && indexPath.row == 2) {
             let vc = Feedback_VC()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if (indexPath.section == 1 && indexPath.row == 3) {
+            let vc = About_us_VC()
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }

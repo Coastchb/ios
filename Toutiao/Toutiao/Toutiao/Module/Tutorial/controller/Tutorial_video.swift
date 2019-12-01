@@ -11,11 +11,13 @@ import UIKit
 class Tutorial_video: UITableViewController {
     var all_vidoes = [(Int, String, String, String, String, Int)]()
     var viewed_tutorial_id = [Int]()
-
-       override func viewDidLoad() {
-           super.viewDidLoad()
-
-           //print(all_tutorials)
+    
+    static var to_update = false
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        all_vidoes = get_all_videos()
+        
+        //print(all_tutorials)
            tableView.register(UINib(nibName: "Tutorial_text_cell", bundle: nil), forCellReuseIdentifier: "tutorial_text_cell")
            
            // 顶部刷新控件
@@ -115,13 +117,18 @@ class Tutorial_video: UITableViewController {
            var video_detail = all_vidoes[indexPath.row]
            print("\(video_detail.4)")
            var detail_vc = webVC()
+           detail_vc.hidesBottomBarWhenPushed = true
            detail_vc.url_string = video_detail.4
            self.navigationController?.pushViewController(detail_vc, animated: true)
            
        }
        
-       override func viewWillAppear(_ animated: Bool) {
-           all_vidoes = get_all_videos()
+    override func viewWillAppear(_ animated: Bool) {
+        if (Tutorial_video.to_update) {
+            all_vidoes = get_all_videos()
+            tableView.reloadData()
+            Tutorial_video.to_update = false
+        }
            if(all_vidoes.count == 0) {
                let alter_vc = UIAlertController(title: "请设置您的标签", message: "", preferredStyle: .alert)
                let cancel_action = UIAlertAction(title: "暂不设置", style: .cancel, handler: nil)
@@ -136,7 +143,6 @@ class Tutorial_video: UITableViewController {
                alter_vc.addAction(add_action)
                self.present(alter_vc, animated: true)
            }
-           tableView.reloadData()
        }
            
        override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

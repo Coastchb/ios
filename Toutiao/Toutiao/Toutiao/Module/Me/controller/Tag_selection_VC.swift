@@ -20,9 +20,7 @@ class tagSelectionViewController: UIViewController, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell",
                                                       for: indexPath)
-        print("here 0")
         if let tagCell = cell as? tagsCell {
-            print("here 1")
             //let text = NSAttributedString(string: tags[indexPath.row].1, attributes: [.foregroundColor: UIColor.blue])
             //tagCell.tagLabel.attributedText = text
             tagCell.tag_name!.text = tags[indexPath.row].1
@@ -50,7 +48,7 @@ class tagSelectionViewController: UIViewController, UICollectionViewDataSource, 
         //tagsCollection.cellForItem(at: indexPath)?.selectedBackgroundView = selectedView
         
         if let cell = collectionView.cellForItem(at: indexPath) as? tagsCell {
-            cell.is_selected = user_tags.contains(tags[indexPath.row].0)
+            cell.is_selected = Tag_item.get_user_tags(user_name: User.get_user_name()).contains(tags[indexPath.row].0)
             cell.tag_id = tags[indexPath.row].0
             cell.show_hide_icon()
             
@@ -63,18 +61,38 @@ class tagSelectionViewController: UIViewController, UICollectionViewDataSource, 
         
     }
         
-    //lazy var tags = ["搞笑", "科技", "美食", "美女", "生活", "经济", "社会", "政治", "军事", "小说", "视频", "文化"]
     lazy var tags = [(Int,String)]()
     lazy var user_tags = [Int]()
+    
+    @objc func add_tag() {
+        print("to add")
+        let add_tag_vc = Add_tag_VC()
+        self.present(add_tag_vc,animated: true)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tags = Tag_item.get_all_tags()
-        user_tags = Tag_item.get_user_tags(user_name: User.get_user_name())!
-        
+        user_tags = Tag_item.get_user_tags(user_name: User.get_user_name())
         self.tagsCollection.register(UINib(nibName: "tagsCell", bundle: nil), forCellWithReuseIdentifier: "tagCell")
         // Do any additional setup after loading the view.
+        
+        self.navigationItem.title = "选择标签"
+
+        //let view = Bundle.main.loadNibNamed("add_tag_btn", owner: nil, options: nil)?.last as! add_tag_btn
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: view)
+        /*let text_label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+        text_label.text = "aaa"
+        let add_btn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+        add_btn.titleLabel?.text = "添加"
+        add_btn.setTitleColor(.blue, for: .normal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: add_btn)*/
+        
+        let item=UIBarButtonItem(title:"创建",style:.plain,target:self,action:Selector(("add_tag")))
+        navigationItem.rightBarButtonItem = item
+        
     }
     
 

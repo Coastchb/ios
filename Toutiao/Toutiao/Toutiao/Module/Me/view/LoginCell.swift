@@ -17,6 +17,10 @@ class LoginCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.user_avatar.image = UIImage(imageLiteralResourceName: "avatar_moren")
+        
+        self.user_avatar.layer.masksToBounds = true
+        self.user_avatar.layer.cornerRadius = 15
+
         // Initialization code
     }
 

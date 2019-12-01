@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="VxT-TY-LR7" customClass="add_tag_btn" customModule="Toutiao" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+            <rect key="frame" x="0.0" y="0.0" width="110" height="20"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="没有想要的？去" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVV-2E-Lck">
@@ -22,7 +22,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有想要的？去" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3E-qZ-oKX">
-                    <rect key="frame" x="0.0" y="18" width="72" height="12"/>
+                    <rect key="frame" x="0.0" y="8" width="72" height="12"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="12" id="Xgv-Yp-mki"/>
                         <constraint firstAttribute="width" constant="72" id="lSV-8O-s3a"/>
@@ -32,9 +32,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-22-1Ev">
-                    <rect key="frame" x="78" y="0.0" width="31" height="30"/>
+                    <rect key="frame" x="78" y="-1" width="31" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="iPn-RT-c2H"/>
+                        <constraint firstAttribute="height" constant="21" id="iPn-RT-c2H"/>
                     </constraints>
                     <state key="normal" title="添加"/>
                     <connections>

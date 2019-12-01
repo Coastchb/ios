@@ -13,6 +13,9 @@ class User_avatar_cell: UITableViewCell {
     @IBOutlet weak var avatar_image_view: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.avatar_image_view.layer.masksToBounds = true
+        self.avatar_image_view.layer.cornerRadius = 15
         // Initialization code
     }
 

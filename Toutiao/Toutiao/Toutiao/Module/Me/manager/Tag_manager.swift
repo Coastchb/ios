@@ -225,3 +225,60 @@ func remove_user_tag_from_DB(tag_id:Int) -> Bool {
      }
     return ret == "OK"
 }
+
+func add_user_added_tag_to_DB(tag_name:String, tag_abb:String, tag_descrip: String) -> Bool {
+    var user_name = ""
+    var tmp_user_name = User.get_user_name()
+    if tmp_user_name == nil {
+        user_name = "anonymity"
+    } else {
+        user_name = tmp_user_name!
+    }
+   
+    
+     let urlPath = "http://localhost:8888/add_user_added_tag?\(user_name)&\(tag_name)&\(tag_abb)&\(tag_descrip)"
+    print(urlPath)
+     guard let endpoint = URL(string: urlPath) else {
+         print("Error creating endpoint")
+         return false
+     }
+     
+     var request = URLRequest(url: endpoint)
+     request.httpMethod = "POST"
+     request.setValue("Bearer tokens", forHTTPHeaderField: "authorization")
+     
+     do {
+         let data = try JSONSerialization.data(withJSONObject: [], options: [])
+         request.httpBody = data
+     } catch {
+         print("Error while serialize json data")
+         return false
+     }
+     
+    var ret = ""
+     var finished = false
+     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+         do {
+             guard let data = data else {
+                 return
+             }
+             print(try? JSONSerialization.jsonObject(with: data, options: []))
+             // It seems that the key for json must be String!
+             if let rep = try JSONSerialization.jsonObject(with: data, options: []) as? [String : [String]] {
+                 print("\(rep)")
+                rep.forEach { (arg) in
+                    let (type, val) = arg
+                    ret = val[0]
+                }
+             }
+             finished = true
+         } catch let err as NSError {
+             print("catch error:\(err.debugDescription)")
+         }
+     }
+     task.resume()
+     
+     while(finished == false) {
+     }
+    return ret == "OK"
+}
