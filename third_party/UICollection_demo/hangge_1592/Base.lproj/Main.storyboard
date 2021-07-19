@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ygo-c0-J2e">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--hangge.com-->
+        <scene sceneID="AP7-ZU-5wv">
+            <objects>
+                <collectionViewController id="18D-dB-v25" customClass="CollectionViewController" customModule="hangge_1592" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="KpR-VZ-ENr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="0.0" id="6r6-tp-EDR">
+                            <size key="itemSize" width="70" height="90"/>
+                            <size key="headerReferenceSize" width="50" height="35"/>
+                            <size key="footerReferenceSize" width="50" height="13"/>
+                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="r9Q-iY-FkV">
+                                <rect key="frame" x="10" y="35" width="70" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m47-OL-c9Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="m47-OL-c9Q" secondAttribute="bottom" id="CRa-mw-gdU"/>
+                                    <constraint firstItem="m47-OL-c9Q" firstAttribute="top" secondItem="r9Q-iY-FkV" secondAttribute="top" id="Jhp-11-H26"/>
+                                    <constraint firstItem="m47-OL-c9Q" firstAttribute="leading" secondItem="r9Q-iY-FkV" secondAttribute="leading" id="N4b-R0-igD"/>
+                                    <constraint firstAttribute="trailing" secondItem="m47-OL-c9Q" secondAttribute="trailing" id="cVx-kS-Onv"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="vC5-7x-rn2">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEg-Ym-LsI">
+                                    <rect key="frame" x="8" y="0.0" width="304" height="35"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="UEg-Ym-LsI" firstAttribute="top" secondItem="vC5-7x-rn2" secondAttribute="top" id="CTe-SR-IN3"/>
+                                <constraint firstAttribute="trailing" secondItem="UEg-Ym-LsI" secondAttribute="trailing" constant="8" id="SyQ-23-1id"/>
+                                <constraint firstItem="UEg-Ym-LsI" firstAttribute="leading" secondItem="vC5-7x-rn2" secondAttribute="leading" constant="8" id="TxJ-hr-YjB"/>
+                                <constraint firstAttribute="bottom" secondItem="UEg-Ym-LsI" secondAttribute="bottom" id="aSQ-WQ-bqa"/>
+                            </constraints>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="mQP-m9-UW9">
+                            <rect key="frame" x="0.0" y="135" width="320" height="13"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="18D-dB-v25" id="RiS-cx-Ix9"/>
+                            <outlet property="delegate" destination="18D-dB-v25" id="gbI-rY-rHZ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="hangge.com" id="3ui-G1-LT2"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CwW-uR-B8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1998.75" y="-912.67605633802816"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r8s-UU-eRM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ygo-c0-J2e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d4o-7d-jPK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="18D-dB-v25" kind="relationship" relationship="rootViewController" id="GM8-8x-iz5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdI-15-rnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256.8" y="-911.69415292353835"/>
+        </scene>
+    </scenes>
+</document>

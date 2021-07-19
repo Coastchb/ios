@@ -105,7 +105,7 @@ routes.add(method: .post, uri: "/count0") {
 
 do {
     try HTTPServer.launch(
-        .server(name:"www.example.ca", port:8181, routes:routes))
+        .server(name:"localhost", port:11111, routes:routes))
 } catch {
     fatalError("\(error)")
 }

@@ -6,4 +6,9 @@
 //  Copyright © 2019 coastcao. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class select_theme_cell : base_cell {
+    @IBOutlet weak var select_theme_label: UILabel!
+    
+}

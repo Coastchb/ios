@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kEc-36-n9V">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="TV3-RU-geI">
+            <objects>
+                <viewController id="fAO-v5-49n" customClass="homeViewController" customModule="my_TodayNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WVA-1R-u1k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XvJ-pF-PpA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7iD-Iu-EiV">
+                        <barButtonItem key="backBarButtonItem" title="首页" id="f2m-v5-Wz1"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Obo-Qo-MtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2306" y="-1146"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="QeF-8F-itI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="psL-Pa-29n" customClass="myNavigationController" customModule="my_TodayNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" id="uWf-DO-nTU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4vO-WC-dcv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fAO-v5-49n" kind="relationship" relationship="rootViewController" id="FF5-7T-MHt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JsQ-vU-QjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1419" y="-1146"/>
+        </scene>
+        <!--My Tab Bar Controller-->
+        <scene sceneID="XNq-AR-mCU">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kEc-36-n9V" customClass="myTabBarController" customModule="my_TodayNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wgE-n7-mIW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="psL-Pa-29n" kind="relationship" relationship="viewControllers" id="IuZ-Kq-dUx"/>
+                        <segue destination="yZa-ij-okR" kind="relationship" relationship="viewControllers" id="MRH-BH-CxJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WXu-TQ-x3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="508.69565217391306" y="-425.22321428571428"/>
+        </scene>
+        <!--西瓜视频-->
+        <scene sceneID="nDR-s8-kEl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yZa-ij-okR" customClass="myNavigationController" customModule="my_TodayNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="西瓜视频" id="SyB-aL-VMV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QdN-93-sYW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2i-Tw-1iI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1490" y="-393"/>
+        </scene>
+        <!--Push View Controller-->
+        <scene sceneID="DKX-fE-zZH">
+            <objects>
+                <viewController storyboardIdentifier="pushViewController" hidesBottomBarWhenPushed="YES" id="uSq-ow-HHN" customClass="pushViewController" customModule="my_TodayNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qSN-sC-kqb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="page 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKt-Tq-euU">
+                                <rect key="frame" x="137" y="321" width="53" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iZA-Ud-ZuB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kg8-zO-iZJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KG6-by-tKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3436" y="-1146"/>
+        </scene>
+        <!--首页0-->
+        <scene sceneID="u0m-MM-d0d">
+            <objects>
+                <viewController storyboardIdentifier="presentController" id="xfe-vo-6FH" customClass="presentController" customModule="my_TodayNews" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sQH-iL-xO1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcz-Ky-tfp">
+                                <rect key="frame" x="0.0" y="44" width="92" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="back:" destination="xfe-vo-6FH" eventType="touchUpInside" id="WEq-sG-MRy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="page 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blz-TL-DjT">
+                                <rect key="frame" x="232" y="354" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1ow-QY-1Vy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="首页0" id="gBr-EY-6Tp">
+                        <barButtonItem key="backBarButtonItem" title="详情" id="HFU-UB-TMJ"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cvo-6j-Sx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4099" y="-1146"/>
+        </scene>
+    </scenes>
+</document>

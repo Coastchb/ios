@@ -49,7 +49,7 @@ extension UIView {
       widthContraint])
     
   }
-  
+  /*
   func constrainToEdges(_ subview: UIView) {
     
     subview.translatesAutoresizingMaskIntoConstraints = false
@@ -96,5 +96,5 @@ extension UIView {
       leadingContraint,
       trailingContraint])
   }
-  
+ */
 }

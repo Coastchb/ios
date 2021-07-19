@@ -1,8 +1,15 @@
 import UIKit
-import Parchment
+//import Parchment
 
 class ViewController: UIViewController {
   
+    @IBOutlet weak var bt: UIButton!
+    var selected_index = 0 {
+        didSet {
+            //viewWillAppear(true)
+            self.pagingViewController.select(index: selected_index)
+        }
+    }
   // Let's start by creating an array of citites that we
   // will use to generate some view controllers.
   fileprivate let cities = [
@@ -23,10 +30,11 @@ class ViewController: UIViewController {
     "Melbourne"
   ]
   
+   let pagingViewController = PagingViewController<PagingIndexItem>()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let pagingViewController = PagingViewController<PagingIndexItem>()
     pagingViewController.dataSource = self
     pagingViewController.delegate = self
     
@@ -37,6 +45,20 @@ class ViewController: UIViewController {
     view.constrainToEdges(pagingViewController.view)
     pagingViewController.didMove(toParent: self)
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("to show page:\(selected_index)")
+        print("\(self.pagingViewController.selectedScrollPosition)")
+        //self.pagingViewController.selected
+        //self.reloadInputViews()
+        //self.pagingViewController.pageViewController.
+        print("\(self.pagingViewController.children)")
+        print("\(self.pagingViewController.tabBarItem)")
+        print("\(self.pagingViewController.pageViewController.children)")
+        print("\(self.pagingViewController.pageViewController.selectedViewController)")
+    }
   
 }
 
@@ -47,7 +69,12 @@ extension ViewController: PagingViewControllerDataSource {
   }
   
   func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, viewControllerForIndex index: Int) -> UIViewController {
-    return CityViewController(title: cities[index])
+    if ( index != 0) {
+        return  CityViewController(title: cities[index])
+
+    } else {
+        return aViewController(title: "aaaa")
+    }
   }
   
   func numberOfViewControllers<T>(in: PagingViewController<T>) -> Int {
@@ -84,5 +111,11 @@ extension ViewController: PagingViewControllerDelegate {
       return width
     }
   }
-  
+    
+    func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, didScrollToItem pagingItem: T, startingViewController: UIViewController?, destinationViewController: UIViewController, transitionSuccessful: Bool) {
+        pagingViewController.select(pagingItem: pagingItem, animated: true)
+    }
+
+   
 }
+

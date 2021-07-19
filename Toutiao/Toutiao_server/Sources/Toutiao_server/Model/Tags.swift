@@ -36,7 +36,7 @@ class Tags : MySQLStORM{
 class User_tags : MySQLStORM{
     var id : Int = 0
     var tag_id : Int = 0
-    var user_name : String = ""
+    var user_id : Int = 0
     
     override open func table() -> String {
         return "user_tags"
@@ -45,7 +45,7 @@ class User_tags : MySQLStORM{
     override func to(_ this: StORMRow) {
         self.id = Int(this.data["id"] as! Int32)
         self.tag_id = Int(this.data["tag_id"] as! Int32)
-        self.user_name = this.data["user_name"] as! String
+        self.user_id = Int(this.data["user_id"] as! Int32)
     }
     
     func rows() -> [User_tags] {
@@ -56,5 +56,35 @@ class User_tags : MySQLStORM{
             user_tags.append(row)
         }
         return user_tags
+    }
+}
+
+class User_added_tags : MySQLStORM{
+    var id : Int = 0
+    var user_id : Int = 0
+    var tag_name : String = ""
+    var tag_fullname : String = ""
+    var tag_descrip : String = ""
+    
+    override open func table() -> String {
+        return "user_added_tags"
+    }
+    
+    override func to(_ this: StORMRow) {
+        self.id = Int(this.data["id"] as! Int32)
+        self.user_id = Int(this.data["user_id"] as! Int32)
+        self.tag_name = this.data["tag_name"] as! String
+        self.tag_fullname = this.data["tag_fullname"] as! String
+        self.tag_descrip = this.data["tag_descrip"] as! String
+    }
+    
+    func rows() -> [User_added_tags] {
+        var tags = [User_added_tags]()
+        for i in 0..<self.results.rows.count {
+            let row = User_added_tags()
+            row.to(self.results.rows[i])
+            tags.append(row)
+        }
+        return tags
     }
 }

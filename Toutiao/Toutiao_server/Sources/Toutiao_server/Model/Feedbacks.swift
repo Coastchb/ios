@@ -12,7 +12,7 @@ import StORM
 
 class FeedBacks : MySQLStORM {
     var id : Int = 0
-    var user_name : String = ""
+    var user_id : Int = -1
     var feedback : String = ""
     
     
@@ -22,7 +22,7 @@ class FeedBacks : MySQLStORM {
     
     override func to(_ this: StORMRow) {
         self.id = Int(this.data["id"] as! Int32)
-        self.user_name = this.data["user_name"] as! String
+        self.user_id = Int(this.data["user_id"] as! Int32)
         self.feedback = this.data["feedback"] as! String
     }
     

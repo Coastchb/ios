@@ -8,7 +8,7 @@
 import Foundation
 import MySQLStORM
 
-func write_feedback(user_name:String, content:String) -> Bool {
+func write_feedback(user_id:String, content:String) -> Bool {
     print("write feedback to DB")
     let obj = FeedBacks()
     do {
@@ -20,7 +20,7 @@ func write_feedback(user_name:String, content:String) -> Bool {
             target_id = existed_ones.count
         }
         
-        try obj.insert(cols: ["id","user_name","feedback"], params: [target_id, user_name,content ], idcolumn: "id")
+        try obj.insert(cols: ["id","user_id","feedback"], params: [target_id, user_id,content ], idcolumn: "id")
     } catch {
         return false
     }

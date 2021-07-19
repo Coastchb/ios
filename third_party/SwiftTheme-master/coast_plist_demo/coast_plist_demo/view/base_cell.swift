@@ -6,4 +6,14 @@
 //  Copyright © 2019 coastcao. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class base_cell : UITableViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        print("ok 1")
+        theme_backgroundColor = "Global.barTextColor"
+        print("ok 2")
+    }
+}

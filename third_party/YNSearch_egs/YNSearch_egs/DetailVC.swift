@@ -10,9 +10,16 @@ import UIKit
 
 class DetailVC: UIViewController {
 
+    var text : String?
+    
+    @IBOutlet weak var textLabel: UILabel!
+    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        textLabel?.text = text
         // Do any additional setup after loading the view.
     }
     

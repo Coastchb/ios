@@ -10,6 +10,28 @@ import UIKit
 
 class aViewController: UIViewController {
 
+    @IBAction func jump(_ sender: Any) {
+        var nextResponder : UIResponder? = self
+        
+        repeat {
+            nextResponder = nextResponder?.next
+            //print("\(nextResponder)")
+            
+            if let responder = nextResponder as? UITabBarController {
+                print("got it!")
+                //print("\(responder.children.first)")
+                var navigation_VC = responder.children.first
+                //print("\(navigation_VC?.children.first)")
+                
+                if let vc = navigation_VC?.children.first as? my_delegate_egs.ViewController {
+                    print("ok!")
+            
+                    vc.selected_index = 2
+                    
+                }
+            }
+        } while nextResponder != nil
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +39,14 @@ class aViewController: UIViewController {
     }
 
 
+    init(title : String) {
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     /*
     // MARK: - Navigation
 

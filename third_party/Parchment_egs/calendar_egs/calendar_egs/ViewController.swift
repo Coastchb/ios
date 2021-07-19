@@ -1,5 +1,5 @@
 import UIKit
-import Parchment
+//import Parchment
 
 // First thing we need to do is create our own PagingItem that will
 // hold our date. We need to make sure it conforms to Hashable and

@@ -1,0 +1,679 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F83F8BA239895D000A6292D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F8B9239895D000A6292D /* AppDelegate.swift */; };
+		8F83F8BC239895D000A6292D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F8BB239895D000A6292D /* SceneDelegate.swift */; };
+		8F83F8BE239895D000A6292D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F8BD239895D000A6292D /* ViewController.swift */; };
+		8F83F8C1239895D000A6292D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83F8BF239895D000A6292D /* Main.storyboard */; };
+		8F83F8C3239895D200A6292D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F83F8C2239895D200A6292D /* Assets.xcassets */; };
+		8F83F8C6239895D200A6292D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83F8C4239895D200A6292D /* LaunchScreen.storyboard */; };
+		8F83F8D1239895D200A6292D /* SMSSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F8D0239895D200A6292D /* SMSSDKTests.swift */; };
+		8F83F8DC239895D200A6292D /* SMSSDKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F8DB239895D200A6292D /* SMSSDKUITests.swift */; };
+		8F83F8EB239897D200A6292D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8EA239897D200A6292D /* libz.tbd */; };
+		8F83F8ED239897DB00A6292D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8EC239897DB00A6292D /* libicucore.tbd */; };
+		8F83F8EF239897E600A6292D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8EE239897E600A6292D /* MessageUI.framework */; };
+		8F83F8F1239897EE00A6292D /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8F0239897EE00A6292D /* JavaScriptCore.framework */; };
+		8F83F8F3239897F600A6292D /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8F2239897F600A6292D /* libc.tbd */; };
+		8F83F8F5239897FE00A6292D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8F4239897FD00A6292D /* SystemConfiguration.framework */; };
+		8F83F8F72398980500A6292D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8F62398980500A6292D /* CoreTelephony.framework */; };
+		8F83F8F92398980B00A6292D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F83F8F82398980B00A6292D /* AdSupport.framework */; };
+		936BEAA03D11FD8A7B6F472F /* Pods_SMSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A4E903D847485621D5E496 /* Pods_SMSSDK.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F83F8CD239895D200A6292D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F83F8AE239895D000A6292D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F83F8B5239895D000A6292D;
+			remoteInfo = SMSSDK;
+		};
+		8F83F8D8239895D200A6292D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F83F8AE239895D000A6292D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F83F8B5239895D000A6292D;
+			remoteInfo = SMSSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32FBDFDF65B6A5B04387D54D /* Pods-SMSSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSSDK.release.xcconfig"; path = "Target Support Files/Pods-SMSSDK/Pods-SMSSDK.release.xcconfig"; sourceTree = "<group>"; };
+		8F83F8B6239895D000A6292D /* SMSSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F83F8B9239895D000A6292D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8F83F8BB239895D000A6292D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8F83F8BD239895D000A6292D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F83F8C0239895D000A6292D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8F83F8C2239895D200A6292D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F83F8C5239895D200A6292D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F83F8C7239895D200A6292D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F83F8CC239895D200A6292D /* SMSSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMSSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F83F8D0239895D200A6292D /* SMSSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSSDKTests.swift; sourceTree = "<group>"; };
+		8F83F8D2239895D200A6292D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F83F8D7239895D200A6292D /* SMSSDKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMSSDKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F83F8DB239895D200A6292D /* SMSSDKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSSDKUITests.swift; sourceTree = "<group>"; };
+		8F83F8DD239895D200A6292D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F83F8E9239896D400A6292D /* Swift-ObjectC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-ObjectC-Bridging-Header.h"; sourceTree = "<group>"; };
+		8F83F8EA239897D200A6292D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8F83F8EC239897DB00A6292D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		8F83F8EE239897E600A6292D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8F83F8F0239897EE00A6292D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		8F83F8F2239897F600A6292D /* libc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libc.tbd; path = usr/lib/libc.tbd; sourceTree = SDKROOT; };
+		8F83F8F4239897FD00A6292D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8F83F8F62398980500A6292D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8F83F8F82398980B00A6292D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		C9A4E903D847485621D5E496 /* Pods_SMSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMSSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F89075BF06198D7D726F0F7C /* Pods-SMSSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSSDK.debug.xcconfig"; path = "Target Support Files/Pods-SMSSDK/Pods-SMSSDK.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F83F8B3239895D000A6292D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F83F8F92398980B00A6292D /* AdSupport.framework in Frameworks */,
+				8F83F8F72398980500A6292D /* CoreTelephony.framework in Frameworks */,
+				8F83F8F5239897FE00A6292D /* SystemConfiguration.framework in Frameworks */,
+				8F83F8F3239897F600A6292D /* libc.tbd in Frameworks */,
+				8F83F8F1239897EE00A6292D /* JavaScriptCore.framework in Frameworks */,
+				8F83F8EF239897E600A6292D /* MessageUI.framework in Frameworks */,
+				8F83F8ED239897DB00A6292D /* libicucore.tbd in Frameworks */,
+				8F83F8EB239897D200A6292D /* libz.tbd in Frameworks */,
+				936BEAA03D11FD8A7B6F472F /* Pods_SMSSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F83F8C9239895D200A6292D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F83F8D4239895D200A6292D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D450D06D721F135EE3385A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F83F8F82398980B00A6292D /* AdSupport.framework */,
+				8F83F8F62398980500A6292D /* CoreTelephony.framework */,
+				8F83F8F4239897FD00A6292D /* SystemConfiguration.framework */,
+				8F83F8F2239897F600A6292D /* libc.tbd */,
+				8F83F8F0239897EE00A6292D /* JavaScriptCore.framework */,
+				8F83F8EE239897E600A6292D /* MessageUI.framework */,
+				8F83F8EC239897DB00A6292D /* libicucore.tbd */,
+				8F83F8EA239897D200A6292D /* libz.tbd */,
+				C9A4E903D847485621D5E496 /* Pods_SMSSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F83F8AD239895D000A6292D = {
+			isa = PBXGroup;
+			children = (
+				8F83F8B8239895D000A6292D /* SMSSDK */,
+				8F83F8CF239895D200A6292D /* SMSSDKTests */,
+				8F83F8DA239895D200A6292D /* SMSSDKUITests */,
+				8F83F8B7239895D000A6292D /* Products */,
+				941E869DC218F9FADDCDE6CD /* Pods */,
+				0D450D06D721F135EE3385A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8F83F8B7239895D000A6292D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F83F8B6239895D000A6292D /* SMSSDK.app */,
+				8F83F8CC239895D200A6292D /* SMSSDKTests.xctest */,
+				8F83F8D7239895D200A6292D /* SMSSDKUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8F83F8B8239895D000A6292D /* SMSSDK */ = {
+			isa = PBXGroup;
+			children = (
+				8F83F8B9239895D000A6292D /* AppDelegate.swift */,
+				8F83F8BB239895D000A6292D /* SceneDelegate.swift */,
+				8F83F8BD239895D000A6292D /* ViewController.swift */,
+				8F83F8BF239895D000A6292D /* Main.storyboard */,
+				8F83F8C2239895D200A6292D /* Assets.xcassets */,
+				8F83F8C4239895D200A6292D /* LaunchScreen.storyboard */,
+				8F83F8C7239895D200A6292D /* Info.plist */,
+				8F83F8E9239896D400A6292D /* Swift-ObjectC-Bridging-Header.h */,
+			);
+			path = SMSSDK;
+			sourceTree = "<group>";
+		};
+		8F83F8CF239895D200A6292D /* SMSSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F83F8D0239895D200A6292D /* SMSSDKTests.swift */,
+				8F83F8D2239895D200A6292D /* Info.plist */,
+			);
+			path = SMSSDKTests;
+			sourceTree = "<group>";
+		};
+		8F83F8DA239895D200A6292D /* SMSSDKUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8F83F8DB239895D200A6292D /* SMSSDKUITests.swift */,
+				8F83F8DD239895D200A6292D /* Info.plist */,
+			);
+			path = SMSSDKUITests;
+			sourceTree = "<group>";
+		};
+		941E869DC218F9FADDCDE6CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F89075BF06198D7D726F0F7C /* Pods-SMSSDK.debug.xcconfig */,
+				32FBDFDF65B6A5B04387D54D /* Pods-SMSSDK.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F83F8B5239895D000A6292D /* SMSSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F83F8E0239895D200A6292D /* Build configuration list for PBXNativeTarget "SMSSDK" */;
+			buildPhases = (
+				725760AAF2E3E93DCCCE5052 /* [CP] Check Pods Manifest.lock */,
+				8F83F8B2239895D000A6292D /* Sources */,
+				8F83F8B3239895D000A6292D /* Frameworks */,
+				8F83F8B4239895D000A6292D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMSSDK;
+			productName = SMSSDK;
+			productReference = 8F83F8B6239895D000A6292D /* SMSSDK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F83F8CB239895D200A6292D /* SMSSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F83F8E3239895D200A6292D /* Build configuration list for PBXNativeTarget "SMSSDKTests" */;
+			buildPhases = (
+				8F83F8C8239895D200A6292D /* Sources */,
+				8F83F8C9239895D200A6292D /* Frameworks */,
+				8F83F8CA239895D200A6292D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F83F8CE239895D200A6292D /* PBXTargetDependency */,
+			);
+			name = SMSSDKTests;
+			productName = SMSSDKTests;
+			productReference = 8F83F8CC239895D200A6292D /* SMSSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8F83F8D6239895D200A6292D /* SMSSDKUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F83F8E6239895D200A6292D /* Build configuration list for PBXNativeTarget "SMSSDKUITests" */;
+			buildPhases = (
+				8F83F8D3239895D200A6292D /* Sources */,
+				8F83F8D4239895D200A6292D /* Frameworks */,
+				8F83F8D5239895D200A6292D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F83F8D9239895D200A6292D /* PBXTargetDependency */,
+			);
+			name = SMSSDKUITests;
+			productName = SMSSDKUITests;
+			productReference = 8F83F8D7239895D200A6292D /* SMSSDKUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F83F8AE239895D000A6292D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = coastcao;
+				TargetAttributes = {
+					8F83F8B5239895D000A6292D = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					8F83F8CB239895D200A6292D = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 8F83F8B5239895D000A6292D;
+					};
+					8F83F8D6239895D200A6292D = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 8F83F8B5239895D000A6292D;
+					};
+				};
+			};
+			buildConfigurationList = 8F83F8B1239895D000A6292D /* Build configuration list for PBXProject "SMSSDK" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8F83F8AD239895D000A6292D;
+			productRefGroup = 8F83F8B7239895D000A6292D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F83F8B5239895D000A6292D /* SMSSDK */,
+				8F83F8CB239895D200A6292D /* SMSSDKTests */,
+				8F83F8D6239895D200A6292D /* SMSSDKUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F83F8B4239895D000A6292D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F83F8C6239895D200A6292D /* LaunchScreen.storyboard in Resources */,
+				8F83F8C3239895D200A6292D /* Assets.xcassets in Resources */,
+				8F83F8C1239895D000A6292D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F83F8CA239895D200A6292D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F83F8D5239895D200A6292D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		725760AAF2E3E93DCCCE5052 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SMSSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F83F8B2239895D000A6292D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F83F8BE239895D000A6292D /* ViewController.swift in Sources */,
+				8F83F8BA239895D000A6292D /* AppDelegate.swift in Sources */,
+				8F83F8BC239895D000A6292D /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F83F8C8239895D200A6292D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F83F8D1239895D200A6292D /* SMSSDKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F83F8D3239895D200A6292D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F83F8DC239895D200A6292D /* SMSSDKUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F83F8CE239895D200A6292D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F83F8B5239895D000A6292D /* SMSSDK */;
+			targetProxy = 8F83F8CD239895D200A6292D /* PBXContainerItemProxy */;
+		};
+		8F83F8D9239895D200A6292D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F83F8B5239895D000A6292D /* SMSSDK */;
+			targetProxy = 8F83F8D8239895D200A6292D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8F83F8BF239895D000A6292D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F83F8C0239895D000A6292D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8F83F8C4239895D200A6292D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F83F8C5239895D200A6292D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8F83F8DE239895D200A6292D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8F83F8DF239895D200A6292D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F83F8E1239895D200A6292D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F89075BF06198D7D726F0F7C /* Pods-SMSSDK.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
+				INFOPLIST_FILE = SMSSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Coast.SMSSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SMSSDK/Swift-ObjectC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F83F8E2239895D200A6292D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32FBDFDF65B6A5B04387D54D /* Pods-SMSSDK.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
+				INFOPLIST_FILE = SMSSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Coast.SMSSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SMSSDK/Swift-ObjectC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8F83F8E4239895D200A6292D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SMSSDKTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Coast.SMSSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SMSSDK.app/SMSSDK";
+			};
+			name = Debug;
+		};
+		8F83F8E5239895D200A6292D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SMSSDKTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Coast.SMSSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SMSSDK.app/SMSSDK";
+			};
+			name = Release;
+		};
+		8F83F8E7239895D200A6292D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SMSSDKUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Coast.SMSSDKUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SMSSDK;
+			};
+			name = Debug;
+		};
+		8F83F8E8239895D200A6292D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SMSSDKUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Coast.SMSSDKUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SMSSDK;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F83F8B1239895D000A6292D /* Build configuration list for PBXProject "SMSSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F83F8DE239895D200A6292D /* Debug */,
+				8F83F8DF239895D200A6292D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F83F8E0239895D200A6292D /* Build configuration list for PBXNativeTarget "SMSSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F83F8E1239895D200A6292D /* Debug */,
+				8F83F8E2239895D200A6292D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F83F8E3239895D200A6292D /* Build configuration list for PBXNativeTarget "SMSSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F83F8E4239895D200A6292D /* Debug */,
+				8F83F8E5239895D200A6292D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F83F8E6239895D200A6292D /* Build configuration list for PBXNativeTarget "SMSSDKUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F83F8E7239895D200A6292D /* Debug */,
+				8F83F8E8239895D200A6292D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8F83F8AE239895D000A6292D /* Project object */;
+}

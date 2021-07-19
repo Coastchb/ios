@@ -8,12 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		8F80C63A2346D3B000C3851C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C6392346D3B000C3851C /* AppDelegate.swift */; };
-		8F80C63C2346D3B000C3851C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C63B2346D3B000C3851C /* ViewController.swift */; };
 		8F80C63F2346D3B000C3851C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F80C63D2346D3B000C3851C /* Main.storyboard */; };
 		8F80C6412346D3B100C3851C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F80C6402346D3B100C3851C /* Assets.xcassets */; };
 		8F80C6442346D3B100C3851C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F80C6422346D3B100C3851C /* LaunchScreen.storyboard */; };
 		8F80C64F2346D3B100C3851C /* coast_plist_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C64E2346D3B100C3851C /* coast_plist_demoTests.swift */; };
 		8F80C65A2346D3B100C3851C /* coast_plist_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C6592346D3B100C3851C /* coast_plist_demoUITests.swift */; };
+		8F80C6692346D48300C3851C /* about_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C6682346D48300C3851C /* about_cell.swift */; };
+		8F80C66B2346D49C00C3851C /* select_theme_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C66A2346D49C00C3851C /* select_theme_cell.swift */; };
+		8F80C66D2346D53800C3851C /* base_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C66C2346D53800C3851C /* base_cell.swift */; };
+		8F80C6722346D7D400C3851C /* Yellow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F80C66F2346D7D400C3851C /* Yellow.plist */; };
+		8F80C6732346D7D400C3851C /* Red.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F80C6702346D7D400C3851C /* Red.plist */; };
+		8F80C6742346D7D400C3851C /* Night.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F80C6712346D7D400C3851C /* Night.plist */; };
+		8F80C6772346E1BC00C3851C /* selectListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C6762346E1BC00C3851C /* selectListTableViewController.swift */; };
+		8FE2455C234A20C1008DD13B /* ThemeCGFloatPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24542234A20C1008DD13B /* ThemeCGFloatPicker.swift */; };
+		8FE2455D234A20C1008DD13B /* ThemeVisualEffectPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24543234A20C1008DD13B /* ThemeVisualEffectPicker.swift */; };
+		8FE2455E234A20C1008DD13B /* ThemeStatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24544234A20C1008DD13B /* ThemeStatePicker.swift */; };
+		8FE2455F234A20C1008DD13B /* UIRefreshControl+TitleAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24545234A20C1008DD13B /* UIRefreshControl+TitleAttributes.swift */; };
+		8FE24560234A20C1008DD13B /* ThemeBarStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24546234A20C1008DD13B /* ThemeBarStylePicker.swift */; };
+		8FE24561234A20C1008DD13B /* ThemeColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24547234A20C1008DD13B /* ThemeColorPicker.swift */; };
+		8FE24562234A20C1008DD13B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24548234A20C1008DD13B /* UIColorExtension.swift */; };
+		8FE24563234A20C1008DD13B /* ThemeManager+OC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24549234A20C1008DD13B /* ThemeManager+OC.swift */; };
+		8FE24564234A20C1008DD13B /* ThemeFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2454A234A20C1008DD13B /* ThemeFontPicker.swift */; };
+		8FE24565234A20C1008DD13B /* ThemeDictionaryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2454B234A20C1008DD13B /* ThemeDictionaryPicker.swift */; };
+		8FE24566234A20C1008DD13B /* ThemeScrollViewIndicatorStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2454C234A20C1008DD13B /* ThemeScrollViewIndicatorStylePicker.swift */; };
+		8FE24567234A20C1008DD13B /* UITextField+PlaceholderAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2454D234A20C1008DD13B /* UITextField+PlaceholderAttributes.swift */; };
+		8FE24568234A20C1008DD13B /* ThemeManager+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2454E234A20C1008DD13B /* ThemeManager+Index.swift */; };
+		8FE24569234A20C1008DD13B /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2454F234A20C1008DD13B /* ThemePicker.swift */; };
+		8FE2456A234A20C1008DD13B /* UILabel+TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24550234A20C1008DD13B /* UILabel+TextAttributes.swift */; };
+		8FE2456B234A20C1008DD13B /* ThemeCGColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24551234A20C1008DD13B /* ThemeCGColorPicker.swift */; };
+		8FE2456C234A20C1008DD13B /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24552234A20C1008DD13B /* ThemeManager.swift */; };
+		8FE2456D234A20C1008DD13B /* NSObject+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24553234A20C1008DD13B /* NSObject+Theme.swift */; };
+		8FE2456E234A20C1008DD13B /* UIKit+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24554234A20C1008DD13B /* UIKit+Theme.swift */; };
+		8FE2456F234A20C1008DD13B /* ThemeKeyboardAppearancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24555234A20C1008DD13B /* ThemeKeyboardAppearancePicker.swift */; };
+		8FE24570234A20C1008DD13B /* ThemeManager+Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24556234A20C1008DD13B /* ThemeManager+Plist.swift */; };
+		8FE24571234A20C1008DD13B /* ThemeStringAttributesPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24557234A20C1008DD13B /* ThemeStringAttributesPicker.swift */; };
+		8FE24572234A20C1008DD13B /* ThemeActivityIndicatorViewStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24558234A20C1008DD13B /* ThemeActivityIndicatorViewStylePicker.swift */; };
+		8FE24573234A20C1008DD13B /* ThemeImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE24559234A20C1008DD13B /* ThemeImagePicker.swift */; };
+		8FE24574234A20C1008DD13B /* ThemeStatusBarStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2455A234A20C1008DD13B /* ThemeStatusBarStylePicker.swift */; };
+		8FE24575234A20C1008DD13B /* NSAttributedString+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2455B234A20C1008DD13B /* NSAttributedString+Merge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +68,6 @@
 /* Begin PBXFileReference section */
 		8F80C6362346D3B000C3851C /* coast_plist_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coast_plist_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F80C6392346D3B000C3851C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F80C63B2346D3B000C3851C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8F80C63E2346D3B000C3851C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F80C6402346D3B100C3851C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F80C6432346D3B100C3851C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +78,39 @@
 		8F80C6552346D3B100C3851C /* coast_plist_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coast_plist_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F80C6592346D3B100C3851C /* coast_plist_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coast_plist_demoUITests.swift; sourceTree = "<group>"; };
 		8F80C65B2346D3B100C3851C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F80C6682346D48300C3851C /* about_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = about_cell.swift; sourceTree = "<group>"; };
+		8F80C66A2346D49C00C3851C /* select_theme_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = select_theme_cell.swift; sourceTree = "<group>"; };
+		8F80C66C2346D53800C3851C /* base_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = base_cell.swift; sourceTree = "<group>"; };
+		8F80C66F2346D7D400C3851C /* Yellow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Yellow.plist; sourceTree = "<group>"; };
+		8F80C6702346D7D400C3851C /* Red.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Red.plist; sourceTree = "<group>"; };
+		8F80C6712346D7D400C3851C /* Night.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Night.plist; sourceTree = "<group>"; };
+		8F80C6762346E1BC00C3851C /* selectListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectListTableViewController.swift; sourceTree = "<group>"; };
+		8FE24542234A20C1008DD13B /* ThemeCGFloatPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCGFloatPicker.swift; sourceTree = "<group>"; };
+		8FE24543234A20C1008DD13B /* ThemeVisualEffectPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeVisualEffectPicker.swift; sourceTree = "<group>"; };
+		8FE24544234A20C1008DD13B /* ThemeStatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeStatePicker.swift; sourceTree = "<group>"; };
+		8FE24545234A20C1008DD13B /* UIRefreshControl+TitleAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TitleAttributes.swift"; sourceTree = "<group>"; };
+		8FE24546234A20C1008DD13B /* ThemeBarStylePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeBarStylePicker.swift; sourceTree = "<group>"; };
+		8FE24547234A20C1008DD13B /* ThemeColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorPicker.swift; sourceTree = "<group>"; };
+		8FE24548234A20C1008DD13B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8FE24549234A20C1008DD13B /* ThemeManager+OC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThemeManager+OC.swift"; sourceTree = "<group>"; };
+		8FE2454A234A20C1008DD13B /* ThemeFontPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeFontPicker.swift; sourceTree = "<group>"; };
+		8FE2454B234A20C1008DD13B /* ThemeDictionaryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeDictionaryPicker.swift; sourceTree = "<group>"; };
+		8FE2454C234A20C1008DD13B /* ThemeScrollViewIndicatorStylePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeScrollViewIndicatorStylePicker.swift; sourceTree = "<group>"; };
+		8FE2454D234A20C1008DD13B /* UITextField+PlaceholderAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+PlaceholderAttributes.swift"; sourceTree = "<group>"; };
+		8FE2454E234A20C1008DD13B /* ThemeManager+Index.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThemeManager+Index.swift"; sourceTree = "<group>"; };
+		8FE2454F234A20C1008DD13B /* ThemePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
+		8FE24550234A20C1008DD13B /* UILabel+TextAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+TextAttributes.swift"; sourceTree = "<group>"; };
+		8FE24551234A20C1008DD13B /* ThemeCGColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCGColorPicker.swift; sourceTree = "<group>"; };
+		8FE24552234A20C1008DD13B /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		8FE24553234A20C1008DD13B /* NSObject+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Theme.swift"; sourceTree = "<group>"; };
+		8FE24554234A20C1008DD13B /* UIKit+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Theme.swift"; sourceTree = "<group>"; };
+		8FE24555234A20C1008DD13B /* ThemeKeyboardAppearancePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeKeyboardAppearancePicker.swift; sourceTree = "<group>"; };
+		8FE24556234A20C1008DD13B /* ThemeManager+Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThemeManager+Plist.swift"; sourceTree = "<group>"; };
+		8FE24557234A20C1008DD13B /* ThemeStringAttributesPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeStringAttributesPicker.swift; sourceTree = "<group>"; };
+		8FE24558234A20C1008DD13B /* ThemeActivityIndicatorViewStylePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeActivityIndicatorViewStylePicker.swift; sourceTree = "<group>"; };
+		8FE24559234A20C1008DD13B /* ThemeImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeImagePicker.swift; sourceTree = "<group>"; };
+		8FE2455A234A20C1008DD13B /* ThemeStatusBarStylePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeStatusBarStylePicker.swift; sourceTree = "<group>"; };
+		8FE2455B234A20C1008DD13B /* NSAttributedString+Merge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Merge.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +161,11 @@
 		8F80C6382346D3B000C3851C /* coast_plist_demo */ = {
 			isa = PBXGroup;
 			children = (
+				8FE24541234A20C1008DD13B /* Sources */,
+				8F80C6752346E19700C3851C /* controller */,
+				8F80C66E2346D75F00C3851C /* theme */,
+				8F80C6672346D47200C3851C /* view */,
 				8F80C6392346D3B000C3851C /* AppDelegate.swift */,
-				8F80C63B2346D3B000C3851C /* ViewController.swift */,
 				8F80C63D2346D3B000C3851C /* Main.storyboard */,
 				8F80C6402346D3B100C3851C /* Assets.xcassets */,
 				8F80C6422346D3B100C3851C /* LaunchScreen.storyboard */,
@@ -123,6 +190,67 @@
 				8F80C65B2346D3B100C3851C /* Info.plist */,
 			);
 			path = coast_plist_demoUITests;
+			sourceTree = "<group>";
+		};
+		8F80C6672346D47200C3851C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8F80C6682346D48300C3851C /* about_cell.swift */,
+				8F80C66A2346D49C00C3851C /* select_theme_cell.swift */,
+				8F80C66C2346D53800C3851C /* base_cell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8F80C66E2346D75F00C3851C /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				8F80C6712346D7D400C3851C /* Night.plist */,
+				8F80C6702346D7D400C3851C /* Red.plist */,
+				8F80C66F2346D7D400C3851C /* Yellow.plist */,
+			);
+			path = theme;
+			sourceTree = "<group>";
+		};
+		8F80C6752346E19700C3851C /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8F80C6762346E1BC00C3851C /* selectListTableViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8FE24541234A20C1008DD13B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8FE24542234A20C1008DD13B /* ThemeCGFloatPicker.swift */,
+				8FE24543234A20C1008DD13B /* ThemeVisualEffectPicker.swift */,
+				8FE24544234A20C1008DD13B /* ThemeStatePicker.swift */,
+				8FE24545234A20C1008DD13B /* UIRefreshControl+TitleAttributes.swift */,
+				8FE24546234A20C1008DD13B /* ThemeBarStylePicker.swift */,
+				8FE24547234A20C1008DD13B /* ThemeColorPicker.swift */,
+				8FE24548234A20C1008DD13B /* UIColorExtension.swift */,
+				8FE24549234A20C1008DD13B /* ThemeManager+OC.swift */,
+				8FE2454A234A20C1008DD13B /* ThemeFontPicker.swift */,
+				8FE2454B234A20C1008DD13B /* ThemeDictionaryPicker.swift */,
+				8FE2454C234A20C1008DD13B /* ThemeScrollViewIndicatorStylePicker.swift */,
+				8FE2454D234A20C1008DD13B /* UITextField+PlaceholderAttributes.swift */,
+				8FE2454E234A20C1008DD13B /* ThemeManager+Index.swift */,
+				8FE2454F234A20C1008DD13B /* ThemePicker.swift */,
+				8FE24550234A20C1008DD13B /* UILabel+TextAttributes.swift */,
+				8FE24551234A20C1008DD13B /* ThemeCGColorPicker.swift */,
+				8FE24552234A20C1008DD13B /* ThemeManager.swift */,
+				8FE24553234A20C1008DD13B /* NSObject+Theme.swift */,
+				8FE24554234A20C1008DD13B /* UIKit+Theme.swift */,
+				8FE24555234A20C1008DD13B /* ThemeKeyboardAppearancePicker.swift */,
+				8FE24556234A20C1008DD13B /* ThemeManager+Plist.swift */,
+				8FE24557234A20C1008DD13B /* ThemeStringAttributesPicker.swift */,
+				8FE24558234A20C1008DD13B /* ThemeActivityIndicatorViewStylePicker.swift */,
+				8FE24559234A20C1008DD13B /* ThemeImagePicker.swift */,
+				8FE2455A234A20C1008DD13B /* ThemeStatusBarStylePicker.swift */,
+				8FE2455B234A20C1008DD13B /* NSAttributedString+Merge.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +358,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F80C6442346D3B100C3851C /* LaunchScreen.storyboard in Resources */,
+				8F80C6742346D7D400C3851C /* Night.plist in Resources */,
 				8F80C6412346D3B100C3851C /* Assets.xcassets in Resources */,
+				8F80C6722346D7D400C3851C /* Yellow.plist in Resources */,
 				8F80C63F2346D3B000C3851C /* Main.storyboard in Resources */,
+				8F80C6732346D7D400C3851C /* Red.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +387,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F80C63C2346D3B000C3851C /* ViewController.swift in Sources */,
+				8FE24564234A20C1008DD13B /* ThemeFontPicker.swift in Sources */,
+				8FE24569234A20C1008DD13B /* ThemePicker.swift in Sources */,
+				8FE2456D234A20C1008DD13B /* NSObject+Theme.swift in Sources */,
+				8FE24567234A20C1008DD13B /* UITextField+PlaceholderAttributes.swift in Sources */,
+				8FE2456F234A20C1008DD13B /* ThemeKeyboardAppearancePicker.swift in Sources */,
+				8FE2455D234A20C1008DD13B /* ThemeVisualEffectPicker.swift in Sources */,
+				8FE24563234A20C1008DD13B /* ThemeManager+OC.swift in Sources */,
+				8FE24560234A20C1008DD13B /* ThemeBarStylePicker.swift in Sources */,
+				8F80C6692346D48300C3851C /* about_cell.swift in Sources */,
+				8FE2456E234A20C1008DD13B /* UIKit+Theme.swift in Sources */,
+				8FE24573234A20C1008DD13B /* ThemeImagePicker.swift in Sources */,
+				8F80C6772346E1BC00C3851C /* selectListTableViewController.swift in Sources */,
+				8FE24561234A20C1008DD13B /* ThemeColorPicker.swift in Sources */,
+				8FE2455E234A20C1008DD13B /* ThemeStatePicker.swift in Sources */,
+				8FE24572234A20C1008DD13B /* ThemeActivityIndicatorViewStylePicker.swift in Sources */,
+				8FE2455C234A20C1008DD13B /* ThemeCGFloatPicker.swift in Sources */,
 				8F80C63A2346D3B000C3851C /* AppDelegate.swift in Sources */,
+				8FE24575234A20C1008DD13B /* NSAttributedString+Merge.swift in Sources */,
+				8FE2456A234A20C1008DD13B /* UILabel+TextAttributes.swift in Sources */,
+				8FE24565234A20C1008DD13B /* ThemeDictionaryPicker.swift in Sources */,
+				8FE24574234A20C1008DD13B /* ThemeStatusBarStylePicker.swift in Sources */,
+				8FE24568234A20C1008DD13B /* ThemeManager+Index.swift in Sources */,
+				8F80C66D2346D53800C3851C /* base_cell.swift in Sources */,
+				8FE2456B234A20C1008DD13B /* ThemeCGColorPicker.swift in Sources */,
+				8FE24571234A20C1008DD13B /* ThemeStringAttributesPicker.swift in Sources */,
+				8FE24570234A20C1008DD13B /* ThemeManager+Plist.swift in Sources */,
+				8F80C66B2346D49C00C3851C /* select_theme_cell.swift in Sources */,
+				8FE24566234A20C1008DD13B /* ThemeScrollViewIndicatorStylePicker.swift in Sources */,
+				8FE2455F234A20C1008DD13B /* UIRefreshControl+TitleAttributes.swift in Sources */,
+				8FE24562234A20C1008DD13B /* UIColorExtension.swift in Sources */,
+				8FE2456C234A20C1008DD13B /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

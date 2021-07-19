@@ -1,5 +1,5 @@
 import UIKit
-import Parchment
+//import Parchment
 
 class CalendarPagingCell: PagingCell {
   

@@ -9,7 +9,7 @@
 import Foundation
 
 func get_user_count() -> Int {
-    let urlPath = "http://0.0.0.0:8181/count0"
+    let urlPath = "http://localhost:11111/count0"
     guard let endpoint = URL(string: urlPath) else {
         print("Error creating endpoint")
         return -1
@@ -55,7 +55,7 @@ func get_user_count() -> Int {
 }
 
 func show_all_users() -> [(Int,String)] {
-    let urlPath = "http://0.0.0.0:8181/show_all"
+    let urlPath = "http://localhost:11111/show_all"
     guard let endpoint = URL(string: urlPath) else {
         print("Error creating endpoint")
         return []

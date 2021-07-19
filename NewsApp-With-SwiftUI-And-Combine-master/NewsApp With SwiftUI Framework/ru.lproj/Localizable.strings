@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  NewsApp With SwiftUI Framework
+
+  Created by Алексей Воронов on 16.06.2019.
+  Copyright © 2019 Алексей Воронов. All rights reserved.
+*/
+
+"Overview" = "Обзор";
+"Top headlines" = "Лучшие заголовки";
+"Sources" = "Ресурсы";
+"Search" = "Поиск";
+"Search articles..." = "Поиск статей...";
+"About source:\n" = "О ресурсе:\n";
+
+// MARK: - Categories
+"Categories" = "Категории";
+"business" = "бизнес";
+"entertainment" = "развлечения";
+"general" = "главное";
+"health" = "здоровье";
+"science" = "наука";
+"sports" = "спорт";
+"technology" = "технологии";
+
+// MARK: - Weather
+"Weather" = "Погода";
+"Current weather" = "Текущая погода";
+"Hourly" = "В течении дня";
+"Daily" = "В течении недели";
+
+// MARK: Errors
+"You made too many requests within a window of time and have been rate limited. Back off for a while." = "Вы превысили допустимое количество запросов. Попробуйте повторить попытку через некоторое время";
+"Server error." = "Ошибка сервера";
+"Empty data." = "Данные отсутствуют";
+"Data has invalid format." = "Не удалось прочитать данные, так как они имеют неверный формат";
+"Something goes wrong." = "Что-то пошло не так";
+"You've denied location authorization" = "Необходимо разрешить приложению использовать вашу геопозицию";
